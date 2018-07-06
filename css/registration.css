@@ -1,0 +1,45 @@
+body{
+    width:100%;
+    height:100%;
+}
+
+#title{
+
+    margin-top: 5%;
+    float: left;
+    text-align: left;
+    background-image: url(https://cdn-a.arcgis.com/cdn/1854E6E/js/arcgisonline/css/images/gallery_banner.jpg);
+    no-repeat center #0172B6;
+
+}
+
+.registerPanel {
+    margin-top: 20%;
+    width:50%;
+    background-color: grey;
+    text-align: center;
+    margin-top: 2%;
+    max-height: 93%;
+    margin-bottom: 2%;
+    max-width: 90%;
+    opacity: 0.2;
+    overflow-y: auto;
+    padding: 24px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#pola {
+    border-style: solid;
+    border-width: thin;
+    border-color: white;
+    background-color: rgba(25, 25, 31, 0.4);
+    margin-top: 40px;
+    text-align: left;
+    font-weight: normal;
+    width: 998px;
+    margin-top: 40px;
+    margin-left: 180px;
+    border-radius: 10px;
+    height: 300px;
+}
