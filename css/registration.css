@@ -1,6 +1,8 @@
 body{
     width:100%;
     height:100%;
+    background-image: url("https://v.wpimg.pl/NzQyMTk0JxN-NmJiXwQ2TmJJYjBFRz4TPB5jJAcff0hpQHttXwh3SnxIemRaAX1KZkh6ewdFLBY4F2M-G1c=");
+    background-size: 1366px 626px;
 }
 
 #title{
@@ -42,4 +44,5 @@ body{
     margin-left: 180px;
     border-radius: 10px;
     height: 300px;
+    color: white;
 }
