@@ -1,55 +1,58 @@
-body{
+﻿body{
     width:100%;
     height:100%;
     background-image: url("https://v.wpimg.pl/NzQyMTk0JxN-NmJiXwQ2TmJJYjBFRz4TPB5jJAcff0hpQHttXwh3SnxIemRaAX1KZkh6ewdFLBY4F2M-G1c=");
-    background-repeat: no-repeat;
     background-size: cover;
-
 }
-.register-error{
-    color: red;
-    font-size: 10px;
-}
-#title{
-    margin: 0 auto 0 auto;
-
-    float: left;
-    text-align: left;
-    background-color: grey;
-    opacity: 0.8;
-    height: 70px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/*.registerPanel {
-    margin-top: 20%;
-    width:50%;
-    background-color: grey;
+.title{
     text-align: center;
-    margin-top: 2%;
-    max-height: 93%;
-    margin-bottom: 2%;
-    max-width: 90%;
-    opacity: 0.2;
-    overflow-y: auto;
-    padding: 24px;
-    margin-left: auto;
-    margin-right: auto;
-}*/
+}
 
 #pola {
     border-style: solid;
     border-width: thin;
     border-color: white;
     background-color: rgba(25, 25, 31, 0.4);
-    margin-top: 40px;
-    text-align: left;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align:center;
+    margin-left: 20%;
+    margin-right: 20%;
     font-weight: normal;
-    width: 998px;
-
-    margin-left: 180px;
+    width: auto;
     border-radius: 10px;
-    height: 300px;
     color: white;
+    overflow: auto;
+    display: inline-block;
+
 }
+
+#daneUzyt{
+    float: left;
+    padding-right: 90px;
+    padding-bottom:17%;
+    margin-bottom: 20px;
+    margin-left:80px;
+}
+
+#daneAdr{
+    float: right;
+    padding-left:90px;
+    padding-bottom:8%;
+    margin-bottom: 20px;
+    margin-right:80px;
+}
+
+#przycisk{
+    margin: 0 auto;
+
+}
+
+/*#div{
+    padding-bottom: 20%;
+    height:max-content;
+}*/
+
+label { display: block; }
+.hint { display: none; color: white; font-style: italic; }
+input:focus + .hint { display: inline; }
