@@ -2,7 +2,8 @@ body{
     width:100%;
     height:100%;
     background-image: url("https://v.wpimg.pl/NzQyMTk0JxN-NmJiXwQ2TmJJYjBFRz4TPB5jJAcff0hpQHttXwh3SnxIemRaAX1KZkh6ewdFLBY4F2M-G1c=");
-    background-size: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
 
 }
 
@@ -14,6 +15,8 @@ body{
     background-color: grey;
     opacity: 0.8;
     height: 70px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /*.registerPanel {

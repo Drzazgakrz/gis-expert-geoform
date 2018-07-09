@@ -38,7 +38,12 @@
 <body id="geoform" class="claro app-loading">
     <a id="top"><!-- Top of page --></a>
     <div class="loading-indicator">
-        <div class="icon-loading"></div>
+        <!--<div class="icon-loading"></div>-->
+        <div id="navbar">
+
+            <a href="registration.html">Zarejestruj się</a>
+
+        </div>
         <div class="loading-error">
             <div class="alert alert-danger"><span class="icon-frown"></span> <span id="loading_message"></span>
             </div>
@@ -91,7 +96,7 @@
                 //The config object contains the following properties: helper services, (optionally)
                 //i18n, appid, webmap and any custom values defined by the application.
                 //In this example we have one called theme.
-                var appResponse = config.appResponse;
+                /*var appResponse = config.appResponse;
                 if(config.appResponse){
                   delete config.appResponse;
                 }
@@ -109,7 +114,7 @@
                 } else {
                     // lets go!
                     myApp.startup(config, appResponse);
-                }
+                }*/
             }, function (error) {
                 // something went wrong. Let's report it.
                 myApp.reportError(error);
