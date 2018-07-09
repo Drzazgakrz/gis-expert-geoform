@@ -8,6 +8,8 @@
     text-align: center;
 }
 
+
+
 #pola {
     border-style: solid;
     border-width: thin;
@@ -56,3 +58,7 @@
 label { display: block; }
 .hint { display: none; color: white; font-style: italic; }
 input:focus + .hint { display: inline; }
+.register-error{
+    color: red;
+    font-size: 12px;
+}

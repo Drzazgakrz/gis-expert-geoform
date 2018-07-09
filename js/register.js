@@ -100,20 +100,9 @@ function register(data) {
             //$.publish('register-success');
         }),
         error: (function (xhr, ajaxOptions, thrownError) {
-            console.log(xhr);
-            try {
                 if (xhr.statusText.toLocaleLowerCase() === 'bad request')
                     showErrors(JSON.parse(JSON.parse(xhr.responseText).message));
-                else {
-                    if (xhr.responseText === undefined)
-                        register_controller.showServerError("Błąd połączenia z serwerem");
-                    else
-                        register_controller.showServerError(JSON.parse(xhr.responseText).message);
-                }
-            }
-            catch (e) {
-                register_controller.showServerError("Nastąpił niezidentyfikowany błąd. Prosimy o kontakt z administracją");
-            }
+
         }),
         data: JSON.stringify(data)
     });
