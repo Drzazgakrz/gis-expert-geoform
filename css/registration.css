@@ -6,7 +6,10 @@ body{
     background-size: cover;
 
 }
-
+.register-error{
+    color: red;
+    font-size: 10px;
+}
 #title{
     margin: 0 auto 0 auto;
 

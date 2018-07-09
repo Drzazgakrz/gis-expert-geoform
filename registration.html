@@ -14,17 +14,43 @@
     </div>
     <div id="pola" >
         <section id="sekcja">
-        Imię: <input type="text" id="name" pattern="([A-ZŁ]{1})+([a-ząęłśćźżó]{2,})" required/></br></br>
-        Nazwisko: <input type="text" id="lastName" pattern="([A-ZŁ]{1})+([a-ząęłśćźżó\-]{2,})" reqiured/></br></br>
-        E-mail: <input type="email" id="email" required/></br></br>
-        Telefon: <input type="tel" id="phone" required/></br></br>
-        Miasto: <input type="text" id="city" pattern=([A-ZŁ]{1})+([a-ząęłśćźżó]{2,})" required/></br></br>
-        Ulica: <input type="text" id="street" pattern=([A-ZŁ]{1})+([a-ząęłśćźżó]{2,})" required/></br></br>
-        Nr domu: <input type="number" id="buildNr" required/></br></br>
-        Nr mieszkania: <input type="number" id="aptNr"/></br></br>
-        Hasło: <input type="password" id="password" required/></br></br>
-        Powtórz Hasło: <input type="password" id="confirmpassword" required/></br></br>
-        Kod pocztowy: <input type="text" id="zipCode" required/></br></br>
+        Imię: <input type="text" id="name" pattern="([A-ZŁ]{1})+([a-ząęłśćźżó]{2,})" required/></br>
+            <div class = "register-error" id = "nameError">
+            </div>
+            </br>
+        Nazwisko: <input type="text" id="lastName" pattern="([A-ZŁ]{1})+([a-ząęłśćźżó\-]{2,})" required/></br>
+            <div class = "register-error" id = "lastNameError">
+            </div>
+            </br>
+        E-mail: <input type="email" id="email"
+                       pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+                       required/></br>
+            <div class = "register-error" id = "usernameError" >
+            </div>
+            </br>
+        Telefon: <input type="tel" id="phone" required pattern="(^[0-9]{9,11}$)"/></br>
+            <div class = "register-error" id = "phoneError">
+            </div></br>
+        Miasto: <input type="text" id="city" pattern=([A-ZŁ]{1})+([a-ząęłśćźżó]{2,})" required/></br>
+            <div class = "register-error" id = "cityError">
+            </div></br>
+        Ulica: <input type="text" id="street" pattern=([A-ZŁ]{1})+([a-ząęłśćźżó]{2,})" required/></br>
+            <div class = "register-error" id = "streetError">
+            </div></br>
+        Nr domu: <input type="number" id="buildNr" pattern="(^[0-9]{1,5}$)" required/></br>
+            <div class = "register-error" id = "buildingNumberError">
+            </div>
+            </br>
+        Nr mieszkania: <input type="number" id="aptNr" pattern="(^[0-9]{1,5}$)"/></br></br>
+        Hasło: <input type="password" id="password" required/></br>
+            <div class = "register-error" id = "passwordError">
+            </div></br>
+        Powtórz Hasło: <input type="password" id="confirmpassword" required/></br>
+            <div class = "register-error" id = "confirmationError">
+            </div></br>
+        Kod pocztowy: <input type="text" id="zipCode" pattern="(^[0-9]{2}-?[0-9]{3}$)" required/></br>
+            <div class = "register-error" id = "zipCodeError">
+            </div></br>
 
             <input type="submit" value="Stwórz konto" id="create" onclick="registerUser()"/>
         </section>
