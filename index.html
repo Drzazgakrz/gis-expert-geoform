@@ -41,7 +41,7 @@
         <!--<div class="icon-loading"></div>-->
         <div id="navbar">
 
-            <a href="registration.html">Zarejestruj się</a>
+            <button id="register_button">Zarejestruj się</button>
 
         </div>
         <div class="loading-error">
@@ -86,11 +86,14 @@
     <script type="text/javascript" src="js/vendor/offline/offline.min.js"></script>
     <script type="text/javascript" src="js/vendor/IndexedDBShim.min.js"></script>
     <script type="text/javascript">
-        require(["config/templateConfig", "application/template", "application/main"], function (templateOptions, Template, Main) {
+        require(["config/templateConfig", "application/template", "application/main",], function (templateOptions, Template, Main) {
             // start template
             var myTemplate = new Template(templateOptions);
             // create my main application. Start placing your logic in the main.js file.
             var myApp = new Main();
+            $("#register_button").on("click",function () {
+               myApp.createRegisterForm();
+            });
             // create my main application. Start placing your logic in the main.js file.
             myTemplate.startup().then(function (config) {
                 //The config object contains the following properties: helper services, (optionally)

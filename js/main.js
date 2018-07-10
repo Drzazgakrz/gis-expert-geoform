@@ -40,9 +40,11 @@ define([
     "application/SearchSources",
     "vendor/usng",
     "dijit/a11yclick",
+    "/gis-expert-geoform/js/register.js",
     "dojo/NodeList-traverse",
     "application/wrapper/main-jquery-deps",
     "dojo/domReady!"
+
 ], function (
   declare,
   kernel,
@@ -52,7 +54,8 @@ define([
   arcgisUtils,
   esriConfig,
   dom,
-  domClass, domStyle,
+  domClass,
+  domStyle,
   on,
   Deferred,
   all,
@@ -65,7 +68,24 @@ define([
   Search,
   modalTemplate,
   userTemplate,
-  nls, ProjectParameters, webMercatorUtils, Point, GraphicsLayer, ShareModal, localStorageHelper, Graphic, PictureMarkerSymbol, editToolbar, InfoTemplate, Popup, theme, pushpins, SearchSources, usng, a11yclick) {
+  nls,
+  ProjectParameters,
+  webMercatorUtils,
+  Point,
+  GraphicsLayer,
+  ShareModal,
+  localStorageHelper,
+  Graphic,
+  PictureMarkerSymbol,
+  editToolbar,
+  InfoTemplate,
+  Popup,
+  theme,
+  pushpins,
+  SearchSources,
+  usng,
+  a11yclick,
+  registerController) {
 
   var NORTHING_OFFSET = 10000000.0; // (meters)
 
@@ -155,7 +175,12 @@ define([
         // remove class
         domClass.remove(dom.byId('jumbotronNode'), "jumbotron");
       }
+
     },
+      createRegisterForm:function(){
+          var body = $("body");
+          registerController.createForm(body);
+      },
     _initPreview: function (node) {
       var cssStyle;
       // if local storage supported
