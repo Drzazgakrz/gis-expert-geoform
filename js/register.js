@@ -3,7 +3,7 @@ var registerController = {
     createForm: function(container){
         container.empty();
         $('head').append('<link rel="stylesheet" type="text/css" href="css/registration.css">');
-        $("body").load("/gis-expert-geoform/js/registration.html",function(){
+        container.load("/gis-expert-geoform/js/registration.html",function(){
                 $("#registerButton").on('click',function () {
                     registerController.registerUser();
                 });

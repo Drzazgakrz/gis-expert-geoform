@@ -41,6 +41,7 @@ define([
     "vendor/usng",
     "dijit/a11yclick",
     "/gis-expert-geoform/js/register.js",
+    "/gis-expert-geoform/js/signIn.js",
     "dojo/NodeList-traverse",
     "application/wrapper/main-jquery-deps",
     "dojo/domReady!"
@@ -85,7 +86,8 @@ define([
   SearchSources,
   usng,
   a11yclick,
-  registerController) {
+  registerController,
+  signInController) {
 
   var NORTHING_OFFSET = 10000000.0; // (meters)
 
@@ -177,6 +179,10 @@ define([
       }
 
     },
+      createSignInForm:function(){
+          var body = $("body");
+          signInController.createForm(body);
+      },
       createRegisterForm:function(){
           var body = $("body");
           registerController.createForm(body);
