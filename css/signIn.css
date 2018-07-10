@@ -1,0 +1,61 @@
+body{
+    width:100%;
+    height:100%;
+    background-image: url("https://v.wpimg.pl/NzQyMTk0JxN-NmJiXwQ2TmJJYjBFRz4TPB5jJAcff0hpQHttXwh3SnxIemRaAX1KZkh6ewdFLBY4F2M-G1c=");
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+/*.registerPanel {
+    margin-top: 20%;
+    width:50%;
+    background-color: grey;
+    text-align: center;
+    margin-top: 2%;
+    max-height: 93%;
+    margin-bottom: 2%;
+    max-width: 90%;
+    opacity: 0.2;
+    overflow-y: auto;
+    padding: 24px;
+    margin-left: auto;
+    margin-right: auto;
+}*/
+
+#pola {
+    border-style: solid;
+    border-width: thin;
+    border-color: white;
+    background-color: rgba(25, 25, 31, 0.4);
+    margin-top: 10%;
+    text-align: left;
+    font-weight: normal;
+    width:26%;
+    margin-left:auto;
+    margin-right:auto;
+    border-radius: 10px;
+    color: white;
+}
+#Logowanie{
+    margin-left:8%;
+}
+.inputy{}
+#errorLoginIsEmpty{
+    color: red;
+    display:none;
+}
+#errorPasswordIsEmpty{
+    color: red;
+    display:none;
+}
+#errorLoginIsWrong{
+    color: red;
+    display:none;
+}
+#errorPasswordIsWrong{
+    color: red;
+    display:none;
+}

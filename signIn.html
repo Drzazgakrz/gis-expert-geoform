@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Logowanie</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/signIn.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/singIn.js"></script>
+</head>
+<body>
+<div id="pola" >
+    <section id="sekcja">
+        <div id="Logowanie">
+
+
+            <label for="login">E-mail</label></br>
+            <input id='login' type='text' name='login'>
+            <div id="errorLoginIsEmpty" > Wprowadź E-mail!</div>
+            <div id="errorLoginIsWrong" >Wprowadź poprawny adres e-mail lub <a href="registration.html">załóż konto</a></div>
+            <p></p>
+            <label for="password">Hasło</label></br>
+            <input id='password' type='password' name='password'>
+            <div id="errorPasswordIsEmpty" >Wprowadź hasło!</div>
+            <div id="errorPasswordIsWrong" >Wprowadzone hasło jest nieprawidłowe!</div>
+            <p></p>
+
+            <button id='returnButton' type='button' class='btn btn-primary' onclick="window.location.href='index.html'" >Powrót</button>
+            <button id='loginButton' class='btn btn-primary' onclick="logowanie()">Login</button>
+            <a id='forgotPasswordLink' href='#'>Zapomniałeś hasła?</a>
+        </div>
+    </section>
+</div>
+</body>
+
+</html>

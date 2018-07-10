@@ -93,3 +93,6 @@ input:focus + .hint { display: inline; }
     text-align:center;
     width:100%;
 }
+aside{
+    height: 100%;
+}
