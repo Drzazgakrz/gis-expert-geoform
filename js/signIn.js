@@ -1,4 +1,4 @@
-define(['/gis-expert-geoform/js/vendor/jquery.min.js'], function () {
+define(['/gis-expert-geoform/js/vendor/jquery.min.js', "/gis-expert-geoform/js/tokenUtil.js"], function () {
     var signInController = {
         createForm:function(){
             var body = $("body");
