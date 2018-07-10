@@ -26,7 +26,7 @@
     <link id="rtlCSS" rel="stylesheet" />
     <link href="js/vendor/select2/select2.min.css" rel="stylesheet" />
     <link href="js/vendor/touch-spinner/jquery.bootstrap-touchspin.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="css/registration.css">
+    <link href="css/registration.css" rel="stylesheet" type="text/css" media="screen"/>
     <script src="js/vendor/jquery.min.js"></script>
     <script src="js/vendor/moment-with-langs.min.js"></script>
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -43,7 +43,7 @@
         <div id="navbar">
 
             <button id="register_button">Zarejestruj się</button>
-
+            <button id="sign_in_button">Zaloguj się</button>
         </div>
         <div class="loading-error">
             <div class="alert alert-danger"><span class="icon-frown"></span> <span id="loading_message"></span>
@@ -94,6 +94,9 @@
             var myApp = new Main();
             $("#register_button").on("click",function () {
                myApp.createRegisterForm();
+            });
+            $("#sign_in_button").on("click",function () {
+                myApp.createSignInForm();
             });
             // create my main application. Start placing your logic in the main.js file.
             myTemplate.startup().then(function (config) {

@@ -11,72 +11,155 @@
     <script src="js/register.js" type="text/javascript"></script>
 </head>
 <body>-->
-<aside class="fillHeight">
-    <div id="pola" >
-        <h1 class="title" style="margin-top:30px; padding-bottom: 20px;">REJESTRACJA</h1>
 
-        <div id="div">
+<div id="pola">
+    <div class="col-12"><h1 class="title" style="margin-top:30px; padding-bottom: 20px;">REJESTRACJA</h1></div>
+
+    <div id="div" class="container">
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-4">
+                <h2 style=" width: 250px;">Dane Użytkownika</h2>
+                <div>
+                    <p>Imię:</p> <input type="text" id="name" class="form-control"
+                                        pattern="([A-ZŁ]{1})+([a-ząęłśćźżó]{2,})"
+                                        required data-toggle="tooltip" data-placement="left"
+                                        title="Imię musi zaczynać się z wielkiej litery i mieć co najmniej 3 znaki!"/>
+                    <div class="register-error" id="nameError"></div>
+                </div>
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-4">
+                <h2 style="float: right; width:260px;">Dane Adresowe</h2>
+                <div class="test">
+                    <p>Telefon:</p> <input type="text" id="phone" class="form-control" required data-toggle="tooltip"
+                                           data-placement="right" title="Numer powinien zawierać od 9 do 11 znaków!"/>
+                    <div class="register-error" id="phoneError">
+                    </div>
+                </div>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-4">
+                <p>Nazwisko:</p> <input type="text" id="lastName" class="form-control"
+                                        pattern="([A-ZŁ]{1})+([a-ząęłśćźżó\-]{2,})" reqiured data-toggle="tooltip"
+                                        data-placement="left"
+                                        title="Nazwisko musi zaczynać się z wielkiej litery i mieć co najmniej 3 znaki!"/>
+                <div class="register-error" id="lastNameError">
+                </div>
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-4">
+                <p>Miejscowość:</p> <input type="text" id="city" class="form-control"
+                                           pattern=([A-ZŁ]{1})+([a-ząęłśćźżó]{2,})" required data-toggle="tooltip"
+                                           data-placement="right"
+                                           title="Nazwa miasta musi zaczynać się z wielkiej litery i mieć co najmniej 3 znaki!"/>
+                <div class="register-error" id="cityError">
+                </div>
+            </div>
+            <div class="col-1"></div>
+        </div>
         <div id="daneUzyt">
-        <h2 style=" width: 250px;" >Dane Użytkownika</h2>
-        <div class="test">
-        <p>Imię:</p> <input type="text" id="name" class="form-control" pattern="([A-ZŁ]{1})+([a-ząęłśćźżó]{2,})" required data-toggle="tooltip" data-placement="left" title="Imię musi zaczynać się z wielkiej litery i mieć co najmniej 3 znaki!"/><div class = "register-error" id = "nameError"></div>
-        </div>
+            <h2 style=" width: 250px;">Dane Użytkownika</h2>
             <div class="test">
-            <p>Nazwisko:</p> <input type="text" id="lastName" class="form-control"  pattern="([A-ZŁ]{1})+([a-ząęłśćźżó\-]{2,})" reqiured data-toggle="tooltip" data-placement="left" title="Nazwisko musi zaczynać się z wielkiej litery i mieć co najmniej 3 znaki!"/><div class = "register-error" id = "lastNameError">
-        </div>
-            </div>
-        <div class="test">
-        <p>E-mail:</p> <input type="email" id="email" class="form-control" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required data-toggle="tooltip" data-placement="left" title="Przykładowy format maila: abc@def.pl"/><div class = "register-error" id = "usernameError" >
-        </div>
-        </div>
-            <div class="test">
-        <p>Hasło:</p> <input type="password" id="password" class="form-control"  pattern="(?=^.{6,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required data-toggle="tooltip" data-placement="left" title="Hasło powinno zawierać co najmniej 6 znaków!"/><div class = "register-error" id = "passwordError">
-        </div>
+                <p>Imię:</p> <input type="text" id="name" class="form-control" pattern="([A-ZŁ]{1})+([a-ząęłśćźżó]{2,})"
+                                    required data-toggle="tooltip" data-placement="left"
+                                    title="Imię musi zaczynać się z wielkiej litery i mieć co najmniej 3 znaki!"/>
+                <div class="register-error" id="nameError"></div>
             </div>
             <div class="test">
-        <p>Powtórz Hasło:</p> <input type="password" id="confirmpassword" class="form-control"  pattern="(?=^.{6,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required data-toggle="tooltip" data-placement="left" title="To hasło musi być takie samo jak poprzednie!"/><div class = "register-error" id = "confirmationError">
-        </div>
+                <p>Nazwisko:</p> <input type="text" id="lastName" class="form-control"
+                                        pattern="([A-ZŁ]{1})+([a-ząęłśćźżó\-]{2,})" reqiured data-toggle="tooltip"
+                                        data-placement="left"
+                                        title="Nazwisko musi zaczynać się z wielkiej litery i mieć co najmniej 3 znaki!"/>
+                <div class="register-error" id="lastNameError">
+                </div>
+            </div>
+            <div class="test">
+                <p>E-mail:</p> <input type="email" id="email" class="form-control"
+                                      pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+                                      required data-toggle="tooltip" data-placement="left"
+                                      title="Przykładowy format maila: abc@def.pl"/>
+                <div class="register-error" id="usernameError">
+                </div>
+            </div>
+            <div class="test">
+                <p>Hasło:</p> <input type="password" id="password" class="form-control"
+                                     pattern="(?=^.{6,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+                                     required data-toggle="tooltip" data-placement="left"
+                                     title="Hasło powinno zawierać co najmniej 6 znaków!"/>
+                <div class="register-error" id="passwordError">
+                </div>
+            </div>
+            <div class="test">
+                <p>Powtórz Hasło:</p> <input type="password" id="confirmpassword" class="form-control"
+                                             pattern="(?=^.{6,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+                                             required data-toggle="tooltip" data-placement="left"
+                                             title="To hasło musi być takie samo jak poprzednie!"/>
+                <div class="register-error" id="confirmationError">
+                </div>
             </div>
         </div>
 
         <div id="daneAdr">
-        <h2 style="float: right; width:260px;">Dane Adresowe</h2>
-        <div class="test">
-        <p>Telefon:</p> <input type="text" id="phone" class="form-control" required data-toggle="tooltip" data-placement="right" title="Numer powinien zawierać od 9 do 11 znaków!"/><div class = "register-error" id = "phoneError">
-        </div>
-        </div>
+            <h2 style="float: right; width:260px;">Dane Adresowe</h2>
             <div class="test">
-            <p>Miejscowość:</p> <input type="text" id="city" class="form-control"  pattern=([A-ZŁ]{1})+([a-ząęłśćźżó]{2,})" required data-toggle="tooltip" data-placement="right" title="Nazwa miasta musi zaczynać się z wielkiej litery i mieć co najmniej 3 znaki!"/><div class = "register-error" id = "cityError">
-        </div>
+                <p>Telefon:</p> <input type="text" id="phone" class="form-control" required data-toggle="tooltip"
+                                       data-placement="right" title="Numer powinien zawierać od 9 do 11 znaków!"/>
+                <div class="register-error" id="phoneError">
+                </div>
             </div>
             <div class="test">
-            <p>Ulica:</p> <input type="text" id="street" class="form-control"  pattern=([A-ZŁ]{1})+([a-ząęłśćźżó]{2,})" required data-toggle="tooltip" data-placement="right" title="Nazwa ulicy musi zaczynać się z wielkiej litery i mieć co najmniej 3 znaki!"/><div class = "register-error" id = "streetError">
-        </div>
+                <p>Miejscowość:</p> <input type="text" id="city" class="form-control"
+                                           pattern=([A-ZŁ]{1})+([a-ząęłśćźżó]{2,})" required data-toggle="tooltip"
+                                           data-placement="right"
+                                           title="Nazwa miasta musi zaczynać się z wielkiej litery i mieć co najmniej 3 znaki!"/>
+                <div class="register-error" id="cityError">
+                </div>
             </div>
             <div class="test">
-        <p>Nr domu:</p> <input type="text" id="buildNr" class="form-control" required data-toggle="tooltip" data-placement="right" title="Numer powinien zawierać cyfry od 0 do 9!"/><div class = "register-error" id = "buildingNumberError">
-        </div>
+                <p>Ulica:</p> <input type="text" id="street" class="form-control"
+                                     pattern=([A-ZŁ]{1})+([a-ząęłśćźżó]{2,})" required data-toggle="tooltip"
+                                     data-placement="right"
+                                     title="Nazwa ulicy musi zaczynać się z wielkiej litery i mieć co najmniej 3 znaki!"/>
+                <div class="register-error" id="streetError">
+                </div>
             </div>
             <div class="test">
-        <p>Nr mieszkania:</p> <input type="text" id="aptNr" class="form-control" required data-toggle="tooltip" data-placement="right" title="Numer powinien zawierać cyfry od 0 do 9!"/>
+                <p>Nr domu:</p> <input type="text" id="buildNr" class="form-control" required data-toggle="tooltip"
+                                       data-placement="right" title="Numer powinien zawierać cyfry od 0 do 9!"/>
+                <div class="register-error" id="buildingNumberError">
+                </div>
             </div>
             <div class="test">
-            <p>Kod pocztowy:</p> <input type="text" id="zipCode" class="form-control" required data-toggle="tooltip" data-placement="right" title="Format kodu pocztowego: XX-XXX"/><div class = "register-error" id = "zipCodeError"></div>
-        </div>
-        </div>
-        </div>
-
-        <div id="przyciski">
-            <div class="button1"><button id="registerButton" type="button" class=" btn btn-primary">Stwórz konto</button></div>
-            <div class="button2"><button type="button" class=" btn btn-primary"  onclick="">Powrót</button></div>
+                <p>Nr mieszkania:</p> <input type="text" id="aptNr" class="form-control" required data-toggle="tooltip"
+                                             data-placement="right" title="Numer powinien zawierać cyfry od 0 do 9!"/>
+            </div>
+            <div class="test">
+                <p>Kod pocztowy:</p> <input type="text" id="zipCode" class="form-control" required data-toggle="tooltip"
+                                            data-placement="right" title="Format kodu pocztowego: XX-XXX"/>
+                <div class="register-error" id="zipCodeError"></div>
+            </div>
         </div>
     </div>
 
+    <div id="przyciski">
+        <div class="button1">
+            <button id="registerButton" type="button" class=" btn btn-primary">Stwórz konto</button>
+        </div>
+        <div class="button2">
+            <button type="button" class=" btn btn-primary" onclick="">Powrót</button>
+        </div>
+    </div>
     <script>
-        $(document).ready(function(){
+        $(document).ready(function () {
             $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
-</aside>
+</div>
+
+
 <!--</body>
 </html>-->
