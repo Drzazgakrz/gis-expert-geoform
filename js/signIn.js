@@ -1,4 +1,4 @@
-define(['/gis-expert-geoform/js/vendor/jquery.min.js', "/gis-expert-geoform/js/tokenUtil.js","/gis-expert-geoform/js/main.js"], function (tokenUtil, main) {
+define(["/gis-expert-geoform/js/tokenUtil.js","/gis-expert-geoform/js/main.js", "/gis-expert-geoform/js/resetPassword.js", '/gis-expert-geoform/js/vendor/jquery.min.js'], function (tokenUtil, main, resetPasswordController) {
     var signInController = {
         isSign: false,
         createForm:function(){
@@ -9,9 +9,12 @@ define(['/gis-expert-geoform/js/vendor/jquery.min.js', "/gis-expert-geoform/js/t
                 $("#loginButton").on('click',function () {
                     signInController.logowanie();
                 });
-                $("returnButton").on('click',function () {
-                    main.startup();
+                $("#returnButton").on('click',function () {
+                    //
                 });
+                $("#forgotPasswordLink").on('click',function () {
+                    signInController.createResetForm();
+                })
             });
         },
         logowanie: function () {
@@ -39,9 +42,9 @@ define(['/gis-expert-geoform/js/vendor/jquery.min.js', "/gis-expert-geoform/js/t
                     success: (function (data) {
                         $("#errorLoginIsWrong").attr("style", "display:none");
                         $("#errorPasswordIsWrong").attr("style", "display:none");
-                        main.startup();
                         signInController.isSign=true;
-                        console.log(this.isSignNow());
+
+                        //console.log(this.isSignNow());
                         /* signIn.loggedIn = true;
                          signIn.currentProvider = "gisExpert";
                          signIn.user = {
@@ -66,6 +69,9 @@ define(['/gis-expert-geoform/js/vendor/jquery.min.js', "/gis-expert-geoform/js/t
                     })
                 });
             }
+        },
+        createResetForm:function(){
+            resetPasswordController.createForm();
         },
         isSignNow: function () {
            return signInController.isSign;
