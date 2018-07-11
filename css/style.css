@@ -24,7 +24,7 @@
 /* Style for Loading Indicator*/
 
 .app-loading {
-  overflow: hidden;
+  overflow: auto;
 }
 
 .app-loading .loading-indicator {
