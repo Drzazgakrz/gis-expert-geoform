@@ -2,13 +2,12 @@ define(['/gis-expert-geoform/js/vendor/jquery.min.js'],function(){
 var registerController = {
     createForm: function(container){
         container.empty();
-        $('head').append('<link rel="stylesheet" type="text/css" href="css/registration.css">');
         container.load("/gis-expert-geoform/js/registration.html",function(){
                 $("#registerButton").on('click',function () {
                     registerController.registerUser();
                 });
                 $("#back").on('click', function () {
-                    location.href = "/gis-expert-geoform/";
+                    location.href = "/gis-expert-geoform";
                 });
         });
     },
@@ -77,7 +76,6 @@ var registerController = {
         for (var i = 0;i<keys.length;i++){
             var input = document.getElementById(keys[i]);
             if(!input.value.match(input.pattern)){
-                console.log(keys[i]);
                 errors[keys[i]] = this.data[keys[i]];
             }
         }

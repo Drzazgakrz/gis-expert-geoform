@@ -9,10 +9,19 @@
     font-size: 30px;
 }
 
-.test{
+.leftcol{
     display: inline-block;
-    width:100%;
+    width:auto;
+    padding-left:5%;
 }
+
+.rightcol{
+    display: inline-block;
+    width:auto;
+    padding-right:5%;
+    float:right;
+}
+
 
 #pola {
     border-style: solid;
@@ -27,14 +36,22 @@
     font-weight: normal;
     width: 70%;
     border-radius: 10px;
-    overflow-y: auto;
-    display: inline-block;
+    color: white;    display: inline-block;
     align-items: center;
     height:700px;
 }
 .label{
     color: white;
 }
+
+.inputy{
+    padding-bottom:5%;
+}
+
+.przyciskipad{
+    padding-bottom:2%;
+}
+
 #daneUzyt{
     float: left;
     padding-right: 100px;
@@ -85,10 +102,18 @@
     margin-bottom:3%;
 
 }
-/*#div{
-    padding-bottom: 20%;
-    height:max-content;
-}*/
+@media(max-width:360px){
+    .titlerwd{
+        font-size: 30px;
+    }
+}
+
+@media(max-width: 768px){
+.rowinput{
+    padding:5%;
+}}
+
+
 
 label { display: block; }
 .hint { display: none; color: white; font-style: italic; }
@@ -99,3 +124,12 @@ input:focus + .hint { display: inline; }
     text-align:center;
     width:100%;
 }
+
+@media (min-width: 1200px){
+    .container {
+        width: 100%;
+    }}
+@media (min-width: 768px){
+    .container {
+        width: auto;
+    }}

@@ -182,8 +182,7 @@ define([
 
     },
       createSignInForm:function(){
-          var body = $("body");
-          signInController.createForm(body);
+          signInController.createForm();
       },
       createRegisterForm:function(){
           var body = $("body");
