@@ -1,4 +1,4 @@
-define(['/gis-expert-geoform/js/vendor/jquery.min.js', "/gis-expert-geoform/js/tokenUtil.js"], function () {
+define(['/gis-expert-geoform/js/vendor/jquery.min.js', "/gis-expert-geoform/js/tokenUtil.js","/gis-expert-geoform/js/main.js"], function (tokenUtil, main) {
     var signInController = {
         createForm:function(){
             var body = $("body");
@@ -7,6 +7,9 @@ define(['/gis-expert-geoform/js/vendor/jquery.min.js', "/gis-expert-geoform/js/t
             body.load("/gis-expert-geoform/js/signIn.html",function(){
                 $("#loginButton").on('click',function () {
                     signInController.logowanie();
+                });
+                $("returnButton").on('click',function () {
+                    main.startup();
                 });
             });
         },
@@ -35,7 +38,7 @@ define(['/gis-expert-geoform/js/vendor/jquery.min.js', "/gis-expert-geoform/js/t
                     success: (function (data) {
                         $("#errorLoginIsWrong").attr("style", "display:none");
                         $("#errorPasswordIsWrong").attr("style", "display:none");
-
+                        main.startup();
                         /* signIn.loggedIn = true;
                          signIn.currentProvider = "gisExpert";
                          signIn.user = {
