@@ -1,5 +1,6 @@
 define(['/gis-expert-geoform/js/vendor/jquery.min.js', "/gis-expert-geoform/js/tokenUtil.js","/gis-expert-geoform/js/main.js"], function (tokenUtil, main) {
     var signInController = {
+        isSign: false,
         createForm:function(){
             var body = $("body");
             body.empty();
@@ -39,6 +40,8 @@ define(['/gis-expert-geoform/js/vendor/jquery.min.js', "/gis-expert-geoform/js/t
                         $("#errorLoginIsWrong").attr("style", "display:none");
                         $("#errorPasswordIsWrong").attr("style", "display:none");
                         main.startup();
+                        signInController.isSign=true;
+                        console.log(this.isSignNow());
                         /* signIn.loggedIn = true;
                          signIn.currentProvider = "gisExpert";
                          signIn.user = {
@@ -63,6 +66,9 @@ define(['/gis-expert-geoform/js/vendor/jquery.min.js', "/gis-expert-geoform/js/t
                     })
                 });
             }
+        },
+        isSignNow: function () {
+           return signInController.isSign;
         }
     };
     return signInController;
