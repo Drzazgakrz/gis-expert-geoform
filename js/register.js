@@ -90,7 +90,7 @@ var registerController = {
             contentType: "application/json",
             dataType: 'json',
             success: (function (data) {
-
+                
             }),
             error: (function (xhr, ajaxOptions, thrownError) {
                 if (xhr.statusText.toLocaleLowerCase() === 'bad request')
