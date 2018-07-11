@@ -96,8 +96,9 @@ var registerController = {
 
             }),
             error: (function (xhr, ajaxOptions, thrownError) {
+                console.log(xhr);
                 if (xhr.statusText.toLocaleLowerCase() === 'bad request')
-                    this.showErrors(JSON.parse(JSON.parse(xhr.responseText).message));
+                    registerController.showErrors(JSON.parse(JSON.parse(xhr.responseText).message));
 
             }),
             data: JSON.stringify(data)
