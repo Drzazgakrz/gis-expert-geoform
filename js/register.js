@@ -7,7 +7,7 @@ var registerController = {
                     registerController.registerUser();
                 });
                 $("#back").on('click', function () {
-                    location.href = "/gis-expert-geoform";
+                    location.href = "/gis-expert-geoform/";
                 });
         });
     },
@@ -90,6 +90,7 @@ var registerController = {
             dataType: 'json',
             success: (function (data) {
                 console.log(data);
+
                 //$.publish('register-success');
             }),
             error: (function (xhr, ajaxOptions, thrownError) {
