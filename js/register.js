@@ -40,6 +40,7 @@ var registerController = {
     showErrors: function (errors) {
         console.log(errors);
         Object.keys(errors).map(function (key, index) {
+            console.log(key);
             document.getElementById(key + 'Error').innerHTML = errors[key];
         });
     },
@@ -53,7 +54,7 @@ var registerController = {
         document.getElementById("streetError").innerHTML = "";
         document.getElementById("buildingNumberError").innerHTML = "";
         document.getElementById("passwordError").innerHTML = "";
-        document.getElementById("confirmationError").innerHTML = "";
+        document.getElementById("confirmpasswordError").innerHTML = "";
         document.getElementById("zipCodeError").innerHTML = "";
     },
 
@@ -62,7 +63,7 @@ var registerController = {
         lastName : "Niepoprawne nazwisko. Nazwisko powinno zaczynać się z dużej litery, pozostałe małe",
         username : "Niepoprawny mail. mail powinien kończyć się @nazwa_domeny np @gmail.com",
         password : "Niepoprawne hasło. Powinien mieć co najmniej 6 znaków",
-        confirmation : "Hasła się nie zgadzają",
+        confirmpassword : "Hasła się nie zgadzają",
         phone : "Niepoprawny numer. Numer powinien mieć 9-11 cyfr",
         street : "Niepoprawna nazwa ulicy. Nazwa powinna się zaczynać z duzej litery a reszta mała",
         buildingNumber : "Niepoprawny numer budynku. Numer powinien być nieujemny",
