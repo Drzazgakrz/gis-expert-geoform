@@ -1,10 +1,9 @@
-define(["/gis-expert-geoform/js/tokenUtil.js","/gis-expert-geoform/js/main.js", "/gis-expert-geoform/js/resetPassword.js", '/gis-expert-geoform/js/vendor/jquery.min.js'], function (tokenUtil, main, resetPasswordController) {
+define(["/gis-expert-geoform/js/tokenUtil.js","application/main", "/gis-expert-geoform/js/resetPassword.js", '/gis-expert-geoform/js/vendor/jquery.min.js'], function (tokenUtil, main, resetPasswordController) {
     var signInController = {
         isSign: false,
         createForm:function(){
             var body = $("body");
             body.empty();
-            $('head').append('<link rel="stylesheet" type="text/css" href="css/signIn.css">');
             body.load("/gis-expert-geoform/js/signIn.html",function(){
                 $("#loginButton").on('click',function () {
                     signInController.logowanie();
@@ -13,8 +12,8 @@ define(["/gis-expert-geoform/js/tokenUtil.js","/gis-expert-geoform/js/main.js", 
                     location.href = "/gis-expert-geoform/index.html";
                 });
                 $("#forgotPasswordLink").on('click',function () {
-                    signInController.createResetForm();
-                })
+                     resetPasswordController.createForm(signInController);
+                });
             });
         },
         logowanie: function () {
@@ -70,9 +69,6 @@ define(["/gis-expert-geoform/js/tokenUtil.js","/gis-expert-geoform/js/main.js", 
                     })
                 });
             }
-        },
-        createResetForm:function(){
-            resetPasswordController.createForm();
         },
         isSignNow: function () {
            return signInController.isSign;
