@@ -25,7 +25,7 @@
                                 <div class="register-error" id="lastNameError"></div>
                             </div>
                             <div class="inputy">
-                                <p>E-mail:</p> <input type="email" id="email" class="form-control"
+                                <p>E-mail:</p> <input type="email" id="username" class="form-control"
                                                       pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
                                                       required data-toggle="tooltip" data-placement="bottom"
                                                       title="Przykładowy format maila: abc@def.pl"/>
@@ -85,7 +85,7 @@
                                 </div>
                             </div>
                             <div class="inputy">
-                                <p>Nr domu:</p> <input type="text" id="buildNr" class="form-control" required
+                                <p>Nr domu:</p> <input type="text" id="buildingNumber" class="form-control" required
                                                        data-toggle="tooltip"
                                                        data-placement="bottom"
                                                        title="Numer powinien zawierać cyfry od 0 do 9!"/>
@@ -93,7 +93,7 @@
                                 </div>
                             </div>
                             <div class="inputy">
-                                <p>Nr mieszkania:</p> <input type="text" id="aptNr" class="form-control" required
+                                <p>Nr mieszkania:</p> <input type="text" id="flatNumber" class="form-control" required
                                                              data-toggle="tooltip"
                                                              data-placement="bottom"
                                                              title="Numer powinien zawierać cyfry od 0 do 9!"/>
@@ -115,7 +115,8 @@
             <div class="col-sm-4"></div>
             <div class="col-sm-4">
                 <button id="registerButton" type="button" class=" btn btn-primary">Stwórz konto</button>
-                <button id="back" type="button" class=" btn btn-primary" onclick="">Powrót</button>
+                <button type="button" class=" btn btn-primary" id="back">Powrót</button>
+
             </div>
             <div class="col-sm-4"></div>
         </div>

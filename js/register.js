@@ -22,14 +22,14 @@ var registerController = {
         var validatedData = {
             firstname: document.getElementById("name").value,
             lastname: document.getElementById("lastName").value,
-            username: document.getElementById("email").value,
+            username: document.getElementById("username").value,
             password: document.getElementById("password").value,
             confirmPassword: document.getElementById("confirmpassword").value,
             address: {
                 street: document.getElementById("street").value,
                 phone: document.getElementById("phone").value,
-                buildingNumber: document.getElementById("buildNr").value,
-                flatNumber: document.getElementById("aptNr").value,
+                buildingNumber: document.getElementById("buildingNumber").value,
+                flatNumber: document.getElementById("flatNumber").value,
                 zipCode: document.getElementById("zipCode").value,
                 city: document.getElementById("city").value
             }
@@ -74,6 +74,7 @@ var registerController = {
         var errors = {};
         var keys = Object.keys(this.data);
         for (var i = 0;i<keys.length;i++){
+            console.log(keys[i]);
             var input = document.getElementById(keys[i]);
             if(!input.value.match(input.pattern)){
                 errors[keys[i]] = this.data[keys[i]];
@@ -89,9 +90,7 @@ var registerController = {
             contentType: "application/json",
             dataType: 'json',
             success: (function (data) {
-                console.log(data);
 
-                //$.publish('register-success');
             }),
             error: (function (xhr, ajaxOptions, thrownError) {
                 if (xhr.statusText.toLocaleLowerCase() === 'bad request')
