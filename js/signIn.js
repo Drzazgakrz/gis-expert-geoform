@@ -10,7 +10,7 @@ define(["/gis-expert-geoform/js/tokenUtil.js","/gis-expert-geoform/js/main.js", 
                     signInController.logowanie();
                 });
                 $("#returnButton").on('click',function () {
-                    //
+                    location.href = "/gis-expert-geoform/index.html";
                 });
                 $("#forgotPasswordLink").on('click',function () {
                     signInController.createResetForm();
@@ -42,6 +42,7 @@ define(["/gis-expert-geoform/js/tokenUtil.js","/gis-expert-geoform/js/main.js", 
                     success: (function (data) {
                         $("#errorLoginIsWrong").attr("style", "display:none");
                         $("#errorPasswordIsWrong").attr("style", "display:none");
+
                         signInController.isSign=true;
 
                         //console.log(this.isSignNow());

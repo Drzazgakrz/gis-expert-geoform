@@ -6,6 +6,7 @@
 }
 .title{
     text-align: center;
+    font-size: 30px;
 }
 
 .test{
@@ -26,13 +27,14 @@
     font-weight: normal;
     width: 70%;
     border-radius: 10px;
-    color: white;
     overflow-y: auto;
     display: inline-block;
     align-items: center;
     height:700px;
 }
-
+.label{
+    color: white;
+}
 #daneUzyt{
     float: left;
     padding-right: 100px;
