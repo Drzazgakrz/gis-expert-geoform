@@ -42,6 +42,7 @@ define([
     "dijit/a11yclick",
     "/gis-expert-geoform/js/register.js",
     "/gis-expert-geoform/js/signIn.js",
+    "/gis-expert-geoform/js/resetPassword.js",
     "dojo/NodeList-traverse",
     "application/wrapper/main-jquery-deps",
     "dojo/domReady!"
@@ -87,7 +88,8 @@ define([
   usng,
   a11yclick,
   registerController,
-  signInController) {
+  signInController,
+  resetPasswordController) {
 
   var NORTHING_OFFSET = 10000000.0; // (meters)
 

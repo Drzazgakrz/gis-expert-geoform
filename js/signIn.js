@@ -13,7 +13,9 @@ define(["/gis-expert-geoform/js/tokenUtil.js","/gis-expert-geoform/js/main.js", 
                     location.href = "/gis-expert-geoform/index.html";
                 });
                 $("#forgotPasswordLink").on('click',function () {
-                    signInController.createResetForm();
+                    resetPasswordController.createForm();
+                    console.log(main);
+                    console.log(main);
                 })
             });
         },
@@ -71,10 +73,7 @@ define(["/gis-expert-geoform/js/tokenUtil.js","/gis-expert-geoform/js/main.js", 
                 });
             }
         },
-        createResetForm:function(){
-            resetPasswordController.createForm();
-        },
-        isSignNow: function () {
+      ignNow: function () {
            return signInController.isSign;
         }
     };

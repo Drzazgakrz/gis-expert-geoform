@@ -8,7 +8,7 @@ var registerController = {
                     registerController.registerUser();
                 });
                 $("#back").on('click', function () {
-                    location.href = "/gis-expert-geoform/index.html";
+                    location.href = "/gis-expert-geoform/";
                 });
         });
     },

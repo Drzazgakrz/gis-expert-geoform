@@ -1,4 +1,4 @@
-define(["/gis-expert-geoform/js/main.js","/gis-expert-geoform/js/signIn.js",'/gis-expert-geoform/js/vendor/jquery.min.js'], function (main,signInController) {
+define(['/gis-expert-geoform/js/signIn.js','/gis-expert-geoform/js/vendor/jquery.min.js'], function (signInController) {
     var resetPasswordController = {
         createForm: function () {
             var body = $("body");
@@ -6,12 +6,11 @@ define(["/gis-expert-geoform/js/main.js","/gis-expert-geoform/js/signIn.js",'/gi
             $('head').append('<link rel="stylesheet" type="text/css" href="css/resetPassword.css">');
             body.load("/gis-expert-geoform/js/resetPassword.html", function () {
                 $("#resetButton").on('click', function () {
-                    console.log("huerh");
                     resetPasswordController.resetPassword();
                 });
-                $("#returnButton").on('click', function () {
-                    resetPasswordController.createSignInForm();
-                });
+                $("#returnButton").on('click',function () {
+
+                })
             });
         },
 
@@ -44,9 +43,6 @@ define(["/gis-expert-geoform/js/main.js","/gis-expert-geoform/js/signIn.js",'/gi
                     })
                 })
             }
-        },
-        createSignInForm:function(){
-            signInController.createForm();
         },
     };
     return resetPasswordController;
