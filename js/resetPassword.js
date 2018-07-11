@@ -42,9 +42,6 @@ define(['application/main','/gis-expert-geoform/js/vendor/jquery.min.js'], funct
                     })
                 });
             }
-        },
-        createSignInForm:function(){
-            signInController.createForm();
         }
     };
     return resetPasswordController;
