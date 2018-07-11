@@ -43,6 +43,7 @@ define(['application/main','/gis-expert-geoform/js/vendor/jquery.min.js'], funct
                 });
             }
         }
+
     };
     return resetPasswordController;
 });
