@@ -53,12 +53,12 @@
 }
 
 @media(max-width: 768px){
-.rowinput{
-    padding:5%;
-}
-.przyciskpad{
-    margin:0 auto;
-}}
+    .rowinput{
+        padding:5%;
+    }
+    .przyciskpad{
+        margin:0 auto;
+    }}
 
 label { display: block; }
 .hint { display: none; color: white; font-style: italic; }
