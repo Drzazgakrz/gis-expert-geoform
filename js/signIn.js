@@ -1,4 +1,4 @@
-define(["/gis-expert-geoform/js/tokenUtil.js","application/main", "/gis-expert-geoform/js/resetPassword.js", '/gis-expert-geoform/js/vendor/jquery.min.js'], function (tokenUtil, Main, resetPasswordController) {
+define(["/gis-expert-geoform/js/tokenUtil.js","application/main", "/gis-expert-geoform/js/resetPassword.js", '/gis-expert-geoform/js/vendor/jquery.min.js'], function (tokenUtil, main, resetPasswordController) {
     var signInController = {
         isSign: false,
         createForm:function(){
@@ -9,7 +9,7 @@ define(["/gis-expert-geoform/js/tokenUtil.js","application/main", "/gis-expert-g
                     signInController.logowanie();
                 });
                 $("#returnButton").on('click',function () {
-                    location.href = "/gis-expert-geoform/index.html";
+                    location.href = "/gis-expert-geoform/";
                 });
                 $("#forgotPasswordLink").on('click',function () {
                      resetPasswordController.createForm(signInController);
@@ -41,21 +41,20 @@ define(["/gis-expert-geoform/js/tokenUtil.js","application/main", "/gis-expert-g
                     success: (function (data) {
                         $("#errorLoginIsWrong").attr("style", "display:none");
                         $("#errorPasswordIsWrong").attr("style", "display:none");
-
                         signInController.isSign=true;
+                        console.log(signInController.isSignNow());
+                        console.log("svrythrw6");
                         location.href="/gis-expert-geoform/";
-                        //console.log(this.isSignNow());
-                        /* signIn.loggedIn = true;
-                         signIn.currentProvider = "gisExpert";
-                         signIn.user = {
+                        tokenUtil.setCookie("token", data.token, 4,signInController.isSign);
+                       /* signInController.user = {
                              name: data.firstname + " " + data.lastname,
                              id: data.token,
                              org: "gisExpert",
                              canSubmit: true
                          };
-                         // Update the calling app
-                         tokenUtil.setCookie("token", data.token, 4);
-                         signIn.statusCallback(signIn.notificationSignIn);*/
+
+                         tokenUtil.setCookie("token", data.token, 4);*/
+
                     }),
                     error: (function (data) {
                         //console.log(data);
@@ -72,6 +71,11 @@ define(["/gis-expert-geoform/js/tokenUtil.js","application/main", "/gis-expert-g
         },
         isSignNow: function () {
            return signInController.isSign;
+        },
+        signOut: function () {
+            signInController.isSign=false;
+            tokenUtil.eraseCookie("token");
+            location.href="/gis-expert-geoform/";
         }
     };
     return signInController;

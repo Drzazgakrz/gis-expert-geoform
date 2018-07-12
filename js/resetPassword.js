@@ -8,6 +8,7 @@ define(['application/main','/gis-expert-geoform/js/vendor/jquery.min.js'], funct
                     resetPasswordController.resetPassword();
                 });
                 $("#returnButton").on('click', function () {
+                    console.log(signInController);
                     signInController.createForm();
                 });
             });
