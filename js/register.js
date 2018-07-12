@@ -43,6 +43,9 @@ var registerController = {
             console.log(key);
             document.getElementById(key + 'Error').innerHTML = errors[key];
         });
+        if(document.getElementById("password")!==document.getElementById("confirmpassword")){
+            errors.confirmpassword = "Hasła się nie zgadzają";
+        }
     },
 
     resetErrors: function () {
@@ -63,7 +66,6 @@ var registerController = {
         lastName : "Niepoprawne nazwisko. Nazwisko powinno zaczynać się z dużej litery, pozostałe małe",
         username : "Niepoprawny mail. mail powinien kończyć się @nazwa_domeny np @gmail.com",
         password : "Niepoprawne hasło. Powinien mieć co najmniej 6 znaków",
-        confirmpassword : "Hasła się nie zgadzają",
         phone : "Niepoprawny numer. Numer powinien mieć 9-11 cyfr",
         street : "Niepoprawna nazwa ulicy. Nazwa powinna się zaczynać z duzej litery a reszta mała",
         buildingNumber : "Niepoprawny numer budynku. Numer powinien być nieujemny",
@@ -94,8 +96,9 @@ var registerController = {
                 
             }),
             error: (function (xhr, ajaxOptions, thrownError) {
+                console.log(xhr);
                 if (xhr.statusText.toLocaleLowerCase() === 'bad request')
-                    this.showErrors(JSON.parse(JSON.parse(xhr.responseText).message));
+                    registerController.showErrors(JSON.parse(JSON.parse(xhr.responseText).message));
 
             }),
             data: JSON.stringify(data)
