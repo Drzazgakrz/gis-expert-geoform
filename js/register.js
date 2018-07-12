@@ -2,13 +2,12 @@ define(['/gis-expert-geoform/js/vendor/jquery.min.js'],function(){
 var registerController = {
     createForm: function(container){
         container.empty();
-        $('head').append('<link rel="stylesheet" type="text/css" href="css/registration.css">');
         container.load("/gis-expert-geoform/js/registration.html",function(){
                 $("#registerButton").on('click',function () {
                     registerController.registerUser();
                 });
                 $("#back").on('click', function () {
-                    location.href = "/gis-expert-geoform/index.html";
+                    location.href = "/gis-expert-geoform/";
                 });
         });
     },
@@ -23,14 +22,14 @@ var registerController = {
         var validatedData = {
             firstname: document.getElementById("name").value,
             lastname: document.getElementById("lastName").value,
-            username: document.getElementById("email").value,
+            username: document.getElementById("username").value,
             password: document.getElementById("password").value,
             confirmPassword: document.getElementById("confirmpassword").value,
             address: {
                 street: document.getElementById("street").value,
                 phone: document.getElementById("phone").value,
-                buildingNumber: document.getElementById("buildNr").value,
-                flatNumber: document.getElementById("aptNr").value,
+                buildingNumber: document.getElementById("buildingNumber").value,
+                flatNumber: document.getElementById("flatNumber").value,
                 zipCode: document.getElementById("zipCode").value,
                 city: document.getElementById("city").value
             }
@@ -41,8 +40,12 @@ var registerController = {
     showErrors: function (errors) {
         console.log(errors);
         Object.keys(errors).map(function (key, index) {
+            console.log(key);
             document.getElementById(key + 'Error').innerHTML = errors[key];
         });
+        if(document.getElementById("password")!==document.getElementById("confirmpassword")){
+            errors.confirmpassword = "Hasła się nie zgadzają";
+        }
     },
 
     resetErrors: function () {
@@ -54,7 +57,7 @@ var registerController = {
         document.getElementById("streetError").innerHTML = "";
         document.getElementById("buildingNumberError").innerHTML = "";
         document.getElementById("passwordError").innerHTML = "";
-        document.getElementById("confirmationError").innerHTML = "";
+        document.getElementById("confirmpasswordError").innerHTML = "";
         document.getElementById("zipCodeError").innerHTML = "";
     },
 
@@ -63,7 +66,6 @@ var registerController = {
         lastName : "Niepoprawne nazwisko. Nazwisko powinno zaczynać się z dużej litery, pozostałe małe",
         username : "Niepoprawny mail. mail powinien kończyć się @nazwa_domeny np @gmail.com",
         password : "Niepoprawne hasło. Powinien mieć co najmniej 6 znaków",
-        confirmation : "Hasła się nie zgadzają",
         phone : "Niepoprawny numer. Numer powinien mieć 9-11 cyfr",
         street : "Niepoprawna nazwa ulicy. Nazwa powinna się zaczynać z duzej litery a reszta mała",
         buildingNumber : "Niepoprawny numer budynku. Numer powinien być nieujemny",
@@ -75,9 +77,9 @@ var registerController = {
         var errors = {};
         var keys = Object.keys(this.data);
         for (var i = 0;i<keys.length;i++){
+            console.log(keys[i]);
             var input = document.getElementById(keys[i]);
             if(!input.value.match(input.pattern)){
-                console.log(keys[i]);
                 errors[keys[i]] = this.data[keys[i]];
             }
         }
@@ -91,12 +93,12 @@ var registerController = {
             contentType: "application/json",
             dataType: 'json',
             success: (function (data) {
-                console.log(data);
-                //$.publish('register-success');
+
             }),
             error: (function (xhr, ajaxOptions, thrownError) {
+                console.log(xhr);
                 if (xhr.statusText.toLocaleLowerCase() === 'bad request')
-                    this.showErrors(JSON.parse(JSON.parse(xhr.responseText).message));
+                    registerController.showErrors(JSON.parse(JSON.parse(xhr.responseText).message));
 
             }),
             data: JSON.stringify(data)
