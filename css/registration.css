@@ -4,11 +4,11 @@
     background-image: url("https://v.wpimg.pl/NzQyMTk0JxN-NmJiXwQ2TmJJYjBFRz4TPB5jJAcff0hpQHttXwh3SnxIemRaAX1KZkh6ewdFLBY4F2M-G1c=");
     background-size: cover;
 }
-.title{
+.titleReg{
     text-align: center;
     font-size: 30px;
 }
-#pola {
+#menu {
     border-style: solid;
     border-width: thin;
     border-color: white;
@@ -21,82 +21,33 @@
     font-weight: normal;
     width: 70%;
     border-radius: 10px;
-
     color: white;
     display: inline-block;
     align-items: center;
-
-    color: white;    display: inline-block;
-    align-items: center;
-    height:700px;
-}
-.label{
-    color: white;
-}
-
-.inputy{
-    padding-bottom:5%;
 }
 
 
-}
-
-
-.inputy{
+.inputyReg{
     margin-left: 5%;
     margin-right: 5%;
-
-#daneUzyt{
-    float: left;
-    padding-right: 100px;
-    padding-bottom:14%;
-    margin-bottom: 10px;
-    margin-left:90px;
-    width:40%;
-    align-items: center;
-    text-align: center;
-
-
 }
 
-.przyciskpad{
-
+.przyciskpadReg{
 
     margin-top:4%;
     margin-bottom:4%;
     margin-right:3%;
 }
 
+.przyciskpad2Reg{
 
-
-#przyciski{
-    margin-left:auto;
-    margin-right: auto;
-    clear:both;
-    margin-bottom: 2%;
-    width:auto;
-    height:10%;
-    align-items: center;
-    padding:2%;
-    text-align: center;
-    display: block;
-    justify-content: center;
-}
-
-.button1{
-    display: inline-block;
-    width:auto;
-    margin-right:1%;
-    margin-bottom:3%;
-
-.przyciskpad2{
     margin-top:4%;
     margin-bottom:4%;
     margin-left:3%;
 }
 
 @media(max-width:360px){
-    .titlerwd{
+    .titlerwdReg{
         font-size: 30px;
     }
 }
@@ -118,15 +69,12 @@ input:focus + .hint { display: inline; }
     text-align:center;
     width:100%;
 }
-
-
->>>>>>> a73d369b4b5b7bda584a68655093288c6e1122f1
 @media (min-width: 1200px){
     .container {
         width: 100%;
     }}
 @media (min-width: 768px){
     .container {
-        width: auto;
+        width: 100%;
     }}
 
