@@ -1,4 +1,4 @@
-define(["/gis-expert-geoform/js/tokenUtil.js","application/main", "/gis-expert-geoform/js/resetPassword.js", '/gis-expert-geoform/js/vendor/jquery.min.js'], function (tokenUtil, main, resetPasswordController) {
+define(["/gis-expert-geoform/js/tokenUtil.js","application/main", "/gis-expert-geoform/js/resetPassword.js", '/gis-expert-geoform/js/vendor/jquery.min.js'], function (tokenUtil, Main, resetPasswordController) {
     var signInController = {
         isSign: false,
         createForm:function(){
@@ -43,7 +43,7 @@ define(["/gis-expert-geoform/js/tokenUtil.js","application/main", "/gis-expert-g
                         $("#errorPasswordIsWrong").attr("style", "display:none");
 
                         signInController.isSign=true;
-
+                        location.href="/gis-expert-geoform/";
                         //console.log(this.isSignNow());
                         /* signIn.loggedIn = true;
                          signIn.currentProvider = "gisExpert";

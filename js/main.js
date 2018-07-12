@@ -113,7 +113,6 @@ define([
     dateFormat: "LLL",
 
     startup: function (config, appResponse, isPreview, node) {
-
       document.documentElement.lang = kernel.locale;
 
       this._appResponse = appResponse;
@@ -2999,6 +2998,14 @@ define([
       if (domClass.contains(node, "errorMessage")) {
         domConstruct.destroy(node);
       }
-    }
+    },
+      przyciski:function(){
+          if(signInController.isSignNow()){
+              $("#logOut").attr("style", "display:inline");
+          }else{
+              $("#sign_in_button").attr("style", "display:none");
+              $("#register_button").attr("style", "display:none");
+          }
+      }
   });
 });
