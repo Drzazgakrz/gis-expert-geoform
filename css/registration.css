@@ -6,22 +6,8 @@
 }
 .title{
     text-align: center;
+    font-size: 30px;
 }
-
-.leftcol{
-    display: inline-block;
-    width:auto;
-    padding-left:5%;
-}
-
-.rightcol{
-    display: inline-block;
-    width:auto;
-    padding-right:5%;
-    float:right;
-}
-
-
 #pola {
     border-style: solid;
     border-width: thin;
@@ -36,53 +22,30 @@
     width: 70%;
     border-radius: 10px;
     color: white;
-
     display: inline-block;
     align-items: center;
+
 }
+
 .inputy{
-    padding-bottom:5%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
-.przyciskipad{
-    padding-bottom:2%;
+.przyciskpad{
+
+    margin-top:4%;
+    margin-bottom:4%;
+    margin-right:3%;
 }
 
-#daneUzyt{
-    float: left;
-    padding-right: 100px;
-    padding-bottom:14%;
-    margin-bottom: 10px;
-    margin-left:90px;
-    width:40%;
-    align-items: center;
-    text-align: center;
+.przyciskpad2{
+
+    margin-top:4%;
+    margin-bottom:4%;
+    margin-left:3%;
 }
 
-#daneAdr{
-    float: right;
-    padding-left:100px;
-    padding-bottom:6%;
-    margin-bottom: 10px;
-    margin-right:90px;
-    width:40%;
-    align-items: center;
-}
-
-.button1{
-    display: inline-block;
-    width:auto;
-    margin-right:1%;
-    margin-bottom:3%;
-
-}
-.button2{
-    display: inline-block;
-    width:auto;
-    margin-left:1%;
-    margin-bottom:3%;
-
-}
 @media(max-width:360px){
     .titlerwd{
         font-size: 30px;
@@ -92,9 +55,10 @@
 @media(max-width: 768px){
 .rowinput{
     padding:5%;
+}
+.przyciskpad{
+    margin:0 auto;
 }}
-
-
 
 label { display: block; }
 .hint { display: none; color: white; font-style: italic; }
@@ -105,7 +69,6 @@ input:focus + .hint { display: inline; }
     text-align:center;
     width:100%;
 }
-
 @media (min-width: 1200px){
     .container {
         width: 100%;
@@ -114,3 +77,4 @@ input:focus + .hint { display: inline; }
     .container {
         width: auto;
     }}
+

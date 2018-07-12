@@ -12,7 +12,8 @@
 </head>
 <body>-->
 
-<div id="pola" class="">
+
+<div id="pola">
     <div class="col-12"><h1 class="title titlerwd" style="margin-top:30px; padding-bottom: 20px;">REJESTRACJA</h1></div>
 
     <div id="div" class="container">
@@ -20,7 +21,7 @@
             <div class="col-sm-1"></div>
             <div class="col-sm-4 left">
                 <h2>Dane Użytkownika</h2>
-                <div class="row rowinput">
+                <div class="row ">
                     <div class="col">
                         <div>
                             <div class="inputy">
@@ -39,7 +40,7 @@
                                 <div class="register-error" id="lastNameError"></div>
                             </div>
                             <div class="inputy">
-                                <p>E-mail:</p> <input type="email" id="email" class="form-control"
+                                <p>E-mail:</p> <input type="email" id="username" class="form-control"
                                                       pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
                                                       required data-toggle="tooltip" data-placement="bottom"
                                                       title="Przykładowy format maila: abc@def.pl"/>
@@ -55,7 +56,7 @@
                                 </div>
                             </div>
                             <div class="inputy">
-                                <p>Powtórz Hasło:</p> <input type="password" id="confirmpassword" class="form-control"
+                                <p>Powtórz Hasło:</p> <input type="password" id="confirmation" class="form-control"
                                                              pattern="(?=^.{6,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
                                                              required data-toggle="tooltip" data-placement="bottom"
                                                              title="To hasło musi być takie samo jak poprzednie!"/>
@@ -70,7 +71,7 @@
             <div class="col-sm-2"></div>
             <div class="col-sm-4 right">
                 <h2>Dane Adresowe</h2>
-                <div class="row rowinput">
+                <div class="row ">
                     <div class="col">
                         <div>
                             <div class="inputy">
@@ -99,7 +100,7 @@
                                 </div>
                             </div>
                             <div class="inputy">
-                                <p>Nr domu:</p> <input type="text" id="buildNr" class="form-control" required
+                                <p>Nr domu:</p> <input type="text" id="buildingNumber" class="form-control" required
                                                        data-toggle="tooltip"
                                                        data-placement="bottom"
                                                        title="Numer powinien zawierać cyfry od 0 do 9!"/>
@@ -107,7 +108,7 @@
                                 </div>
                             </div>
                             <div class="inputy">
-                                <p>Nr mieszkania:</p> <input type="text" id="aptNr" class="form-control" required
+                                <p>Nr mieszkania:</p> <input type="text" id="flatNumber" class="form-control" required
                                                              data-toggle="tooltip"
                                                              data-placement="bottom"
                                                              title="Numer powinien zawierać cyfry od 0 do 9!"/>
@@ -125,21 +126,24 @@
             </div>
             <div class="col-sm-1"></div>
         </div>
-        <div class="row d-flex justify-content-center przyciskipad">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-4">
-                <button id="registerButton" type="button" class=" btn btn-primary">Stwórz konto</button>
-                <button type="button" class=" btn btn-primary" onclick="">Powrót</button>
-            </div>
-            <div class="col-sm-4"></div>
-        </div>
+        <div class="row  ">
 
+            <div class="col-sm-4"></div>
+            <div class="col-sm-2 left przyciskpad">
+                <button id="registerButton" type="button" class=" btn btn-primary" class="przyciskpad">Stwórz konto</button>
+            </div>
+            <div class="col-sm-2 right przyciskpad">
+                <button type="button" class=" btn btn-primary right przyciskpad2" id="back">Powrót</button>
+            </div>
+        </div>
+        <div class="col-sm-4"></div>
     </div>
-    <script>
-        $(document).ready(function () {
-            $('[data-toggle="tooltip"]').tooltip();
-        });
-    </script>
+</div>
+<script>
+    $(document).ready(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+</script>
 </div>
 
 
