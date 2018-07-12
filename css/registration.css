@@ -38,13 +38,10 @@
     padding-bottom:5%;
 }
 
-
-}
-
-
-.inputy{
+.inputy {
     margin-left: 5%;
     margin-right: 5%;
+}
 
 #daneUzyt{
     float: left;
@@ -83,11 +80,12 @@
     justify-content: center;
 }
 
-.button1{
+.button1 {
     display: inline-block;
-    width:auto;
-    margin-right:1%;
-    margin-bottom:3%;
+    width: auto;
+    margin-right: 1%;
+    margin-bottom: 3%;
+}
 
 .przyciskpad2{
     margin-top:4%;
@@ -119,8 +117,6 @@ input:focus + .hint { display: inline; }
     width:100%;
 }
 
-
->>>>>>> a73d369b4b5b7bda584a68655093288c6e1122f1
 @media (min-width: 1200px){
     .container {
         width: 100%;
