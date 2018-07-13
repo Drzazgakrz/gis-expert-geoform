@@ -2,7 +2,7 @@ define([],
     function () {
         var tokenUtil;
         tokenUtil={
-            setCookie : function(name, content, exhours,sign) {
+            setCookie : function(name, content, exhours) {
                 var
             exhours = exhours || 3;
             var d = new Date();
@@ -24,10 +24,6 @@ define([],
                 this.setCookie(name,"",-1,false);
 
         },
-            checkSignIn: function(){
-                return this.zalogowany;
-            },
-
             getCookie : function(cname) {
                 var name = cname + '=';
                 var ca = document.cookie.split(';');

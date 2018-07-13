@@ -127,22 +127,16 @@
         // create my main application. Start placing your logic in the main.js file.
         var myApp = new Main();
         myApp.przyciski();
-        $("#register_button").on("click", function () {
-            myApp.createRegisterForm();
-        });
-        $("#sign_in_button").on("click", function () {
-            myApp.createSignInForm();
 
-        });
-        $("#logOut").on("click", function () {
-            myApp.wyloguj();
-        });
         // create my main application. Start placing your logic in the main.js file.
-        myTemplate.startup().then(function (config) {
-            // The config object contains the following properties: helper services, (optionally)
-            // i18n, appid, webmap and any custom values defined by the application.
-            // In this example we have one called theme.
-            delete config.appResponse;
+      /*  myTemplate.startup().then(function (config) {
+            //The config object contains the following properties: helper services, (optionally)
+            //i18n, appid, webmap and any custom values defined by the application.
+            //In this example we have one called theme.
+            /!*var appResponse = config.appResponse;
+            if(config.appResponse){
+              delete config.appResponse;
+            }
 
             if (config.edit && config.appid) {
                 // get the app builder code
@@ -158,6 +152,7 @@
             } else {
                 //lets go!
                 myApp.startup(config, appResponse);
+
                 // var token;
                 // $.getJSON("http://localhost:8080/ankieta-web/rest/auth/getAnonymousAccess", function (data) {
                 //    token =data.arcGisToken;
@@ -189,6 +184,12 @@
         });
 
 
+
+            }*!/
+        }, function (error) {
+            // something went wrong. Let's report it.
+            myApp.reportError(error);
+        });*/
     });
 </script>
 </body>
