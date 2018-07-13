@@ -33,10 +33,12 @@
     <link href="js/vendor/touch-spinner/jquery.bootstrap-touchspin.min.css" rel="stylesheet" type="text/css"/>
     <link href="css/registration.css" rel="stylesheet" type="text/css" media="screen"/>
     <link href="css/signIn.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link href="css/index.css" rel="stylesheet" type="text/css"/>
     <script src="js/vendor/jquery.min.js"></script>
     <script src="js/vendor/moment-with-langs.min.js"></script>
     <script src="js/vendor/html5shiv.min.js"></script>
     <script src="js/vendor/respond.min.js"></script>
+
 </head>
 
 <body id="geoform" class="claro app-loading">
@@ -44,18 +46,43 @@
 <div class="loading-indicator">
     <!--<div class="icon-loading"></div>-->
     <div class="container">
-        <div class="row">
-            <p>
-            </p>
-        </div>
-    </div>
-    <div id="navbar">
+        <div id="navbar">
 
-    </div>
-    <div class="loading-error">
+        </div>
+        <style>.embed-container {
+            position: relative;
+            padding-bottom: 87%;
+            height: 0;
+            max-width: 60%;
+        }
+
+        .embed-container iframe, .embed-container object, .embed-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60%;
+            height: 60%;
+        }
+
+        small {
+            position: absolute;
+            z-index: 40;
+            bottom: 0;
+            margin-bottom: -15px;
+        }</style>
+        <div class="embed-container">
+            <small><a
+                    href="//damian-galan.maps.arcgis.com/apps/Embed/index.html?webmap=516d939901dc40fa8f116efa9b59dfbf&extent=21.8953,50.988,23.3317,51.4362&home=true&zoom=true&scale=true&search=true&searchextent=true&disable_scroll=false&theme=light"
+                    style="color:#0000FF;text-align:left" target="_blank">View larger map</a></small>
+            <br>
+            <iframe width="300" height="260" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                    title="Zgłoszenia mieszkancow"
+                    src="//damian-galan.maps.arcgis.com/apps/Embed/index.html?webmap=516d939901dc40fa8f116efa9b59dfbf&extent=21.8953,50.988,23.3317,51.4362&home=true&zoom=true&previewImage=true&scale=true&search=true&searchextent=true&disable_scroll=false&theme=light"></iframe>
+        </div>
         <div class="alert alert-danger"><span class="icon-frown"></span> <span id="loading_message"></span>
         </div>
     </div>
+</div>
 </div>
 <div id="fullscreen_container" class="fullscreen-container"></div>
 <div id="parentContainter" class="app-content"></div>
@@ -100,25 +127,23 @@
         // create my main application. Start placing your logic in the main.js file.
         var myApp = new Main();
         myApp.przyciski();
-        $("#register_button").on("click",function () {
+        $("#register_button").on("click", function () {
             myApp.createRegisterForm();
         });
-        $("#sign_in_button").on("click",function () {
+        $("#sign_in_button").on("click", function () {
             myApp.createSignInForm();
 
         });
-        $("#logOut").on("click",function () {
+        $("#logOut").on("click", function () {
             myApp.wyloguj();
         });
         // create my main application. Start placing your logic in the main.js file.
         myTemplate.startup().then(function (config) {
-            //The config object contains the following properties: helper services, (optionally)
-            //i18n, appid, webmap and any custom values defined by the application.
-            //In this example we have one called theme.
-            /*var appResponse = config.appResponse;
-            if(config.appResponse){
-              delete config.appResponse;
-            }
+            // The config object contains the following properties: helper services, (optionally)
+            // i18n, appid, webmap and any custom values defined by the application.
+            // In this example we have one called theme.
+            delete config.appResponse;
+
             if (config.edit && config.appid) {
                 // get the app builder code
                 require(["application/builder/builder"], function (builderMode) {
@@ -131,13 +156,39 @@
                     });
                 });
             } else {
-                // lets go!
+                //lets go!
                 myApp.startup(config, appResponse);
-            }*/
-        }, function (error) {
-            // something went wrong. Let's report it.
-            myApp.reportError(error);
+                // var token;
+                // $.getJSON("http://localhost:8080/ankieta-web/rest/auth/getAnonymousAccess", function (data) {
+                //    token =data.arcGisToken;
+                //
+                //     $.ajax({
+                //         contentType: "application/json",
+                //         method:"POST",
+                //         url: 'http://localhost/gis-expert-geoform/viewer.html?webmap=516d939901dc40fa8f116efa9b59dfbf',
+                //         json:true,
+                //         form: {
+                //             f: 'json',
+                //             token: token,
+                //         },
+                //         success: function(result,status,xhr){
+                //             //
+                //             console.log('result');
+                //             $("#nazwa").append(xhr.responseText);
+                //         },
+                //         error: function(error, response, body) {
+                //             console.log(body);
+            }
+            //         });
+            //
+            //
+            //    });
+            console.log();
+
+
         });
+
+
     });
 </script>
 </body>

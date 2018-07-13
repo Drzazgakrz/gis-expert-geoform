@@ -3009,8 +3009,8 @@ define([
               $("#sign_in_button").attr("style", "display:none");
               $("#register_button").attr("style", "display:none");*/
           }else{
-              $("<p><button id='register_button' class='btn btn-primary'>Zarejestruj się</button>"+
-                  "<button id='sign_in_button' class='btn btn-primary'>Zaloguj się</button>").appendTo("#navbar");
+              $("<p><button id='register_button' class='btn btn-primary przyciskiIndex'>Zarejestruj się</button>"+
+                  "<button id='sign_in_button' class='btn btn-primary przyciskiIndex'>Zaloguj się</button>").appendTo("#navbar");
               /*$("#logOut").attr("style", "display:none");
               $("#sign_in_button").attr("style", "display:inline");
               $("#register_button").attr("style", "display:inline");*/
