@@ -75,7 +75,6 @@ define(["/gis-expert-geoform/js/tokenUtil.js","application/main", "/gis-expert-g
         },
         signOut: function () {
             signInController.isSign=false;
-            console.log("funkcja");
             $.ajax({
                 url: "http://localhost:8080/ankieta-web/rest/auth/signOut",
                 type: "GET",
@@ -85,8 +84,8 @@ define(["/gis-expert-geoform/js/tokenUtil.js","application/main", "/gis-expert-g
 
                 },
                 success: (function (data) {
+                    tokenUtil.eraseCookie("token");
                     location.reload();
-
                 }),
                 error: (function (xhr, ajaxOptions, thrownError) {
                     location.reload();

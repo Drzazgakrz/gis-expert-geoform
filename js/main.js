@@ -3013,13 +3013,15 @@ define([
                       xhr.setRequestHeader("token", token);
                   },
                   success: function (status) {
-                      $("<button id='logOut' class='btn btn-primary'>Wyloguj się</button>").appendTo("#navbar");
+                    $("<button id='addNotification' class='btn btn-primary'>Dodaj zgłoszenie</button>"+"<button id='logOut' class='btn btn-primary'>Wyloguj się</button>").appendTo("#navbar");
                       $("#logOut").on("click",function () {
                           signInController.signOut();
                       });
+                      $("#addNotification").on("click",function () {
+                         console.log("dodaje nowe zgloszenie")
+                      });
                   },
                   error: function (data) {
-                    console.log(data);
                       $("<button id='register_button' class='btn btn-primary'>Zarejestruj się</button>"+
                           "<button id='sign_in_button' class='btn btn-primary'>Zaloguj się</button>").appendTo("#navbar");
                       $("#register_button").on("click",function () {
