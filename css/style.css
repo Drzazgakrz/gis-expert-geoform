@@ -8,15 +8,15 @@
   height: 200px;
   border: 0;
 }
-/*#sign_in_button{
-  display:none;
+#sign_in_button{
+  z-index: 500;
 }
 #register_button{
-  display:none;
+  z-index: 500;
 }
 #logOut{
-  display:none;
-}*/
+  z-index: 500;
+}
 #mapDiv {
   height: 100%;
   width: 100%;

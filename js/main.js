@@ -3002,9 +3002,24 @@ define([
       }
     },
       przyciski:function(){
-          console.log(tokenUtil.getCookie("token"));
           if(tokenUtil.getCookie("token")){
-                $("<p><button id='logOut' class='btn btn-primary'>Wyloguj się</button>").appendTo("#navbar");
+            var token = tokenUtil.getCookie("token");
+              $.ajax({//zmiana na localhosta
+                  url: "http://localhost:8080/ankieta-web/rest/auth/checkToken/",
+                  dataType: "json",
+                  beforeSend: function(xhr) {
+                      xhr.setRequestHeader("token", token);
+                  },
+                  success: function (status) {
+                      $("<p><button id='logOut' class='btn btn-primary'>Wyloguj się</button>").appendTo("#navbar");
+                  }
+                  ,
+                  error: (function (data) {
+                      $("<p><button id='register_button' class='btn btn-primary'>Zarejestruj się</button>"+
+                          "<button id='sign_in_button' class='btn btn-primary'>Zaloguj się</button>").appendTo("#navbar");
+                  })
+              })
+
              /* $("#logOut").attr("style", "display:inline");
               $("#sign_in_button").attr("style", "display:none");
               $("#register_button").attr("style", "display:none");*/
