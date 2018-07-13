@@ -21,73 +21,26 @@
     font-weight: normal;
     width: 70%;
     border-radius: 10px;
-
     color: white;
     display: inline-block;
     align-items: center;
 
-    color: white;    display: inline-block;
-    align-items: center;
-    height:700px;
-}
-.label{
-    color: white;
 }
 
 .inputy{
-    padding-bottom:5%;
-}
-
-.inputy {
     margin-left: 5%;
     margin-right: 5%;
 }
 
-#daneUzyt{
-    float: left;
-    padding-right: 100px;
-    padding-bottom:14%;
-    margin-bottom: 10px;
-    margin-left:90px;
-    width:40%;
-    align-items: center;
-    text-align: center;
-
-
-}
-
 .przyciskpad{
-
 
     margin-top:4%;
     margin-bottom:4%;
     margin-right:3%;
 }
 
-
-
-#przyciski{
-    margin-left:auto;
-    margin-right: auto;
-    clear:both;
-    margin-bottom: 2%;
-    width:auto;
-    height:10%;
-    align-items: center;
-    padding:2%;
-    text-align: center;
-    display: block;
-    justify-content: center;
-}
-
-.button1 {
-    display: inline-block;
-    width: auto;
-    margin-right: 1%;
-    margin-bottom: 3%;
-}
-
 .przyciskpad2{
+
     margin-top:4%;
     margin-bottom:4%;
     margin-left:3%;
@@ -116,7 +69,6 @@ input:focus + .hint { display: inline; }
     text-align:center;
     width:100%;
 }
-
 @media (min-width: 1200px){
     .container {
         width: 100%;
