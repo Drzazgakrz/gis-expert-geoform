@@ -3003,25 +3003,27 @@ define([
     },
       przyciski:function(){
           if(tokenUtil.getCookie("token")){
-             /*// $("<p><button id='logOut' class='btn btn-primary'>Wyloguj się</button>").appendTo("#navbar");*/
             var token = tokenUtil.getCookie("token");
-            var zaloguj = false;
               $.ajax({//zmiana na localhosta
-                  url: "http://localhost:8080/ankieta-web/rest/auth/checkToken/",
+                  url: "http://localhost:8080/ankieta-web/rest/auth/checkToken",
                   dataType: "json",
                   beforeSend: function(xhr) {
                       xhr.setRequestHeader("token", token);
                   },
                   success: function (status) {
-                      $("<button id='logOut' class='btn btn-primary'>Wyloguj się</button>").appendTo("#navbar");
+                    tokenUtil.setCookie("token",status.token,status.expires);
+                      $("<button id='logOut' class='btn btn-primary'>" +
+                          "<span class = 'glyphicon glyphicon-off'></span> Wyloguj się</button>").appendTo("#navbar");
                       $("#logOut").on("click",function () {
                           signInController.signOut();
                       });
                   },
                   error: function (data) {
-                    console.log(data);
-                      $("<button id='register_button' class='btn btn-primary'>Zarejestruj się</button>"+
-                          "<button id='sign_in_button' class='btn btn-primary'>Zaloguj się</button>").appendTo("#navbar");
+                      console.log(data);
+                      $("<button id='register_button' class='btn btn-primary'>" +
+                          "<span class = 'glyphicon glyphicon-edit'></span> Zarejestruj się</button>"+
+                          "<button id='sign_in_button' class='btn btn-primary'>" +
+                          "<span class = 'glyphicon glyphicon-user'></span> Zaloguj się</button>").appendTo("#navbar");
                       $("#register_button").on("click",function () {
                           registerController.createForm();
                       });
@@ -3031,14 +3033,15 @@ define([
                   }
               });
           }else{
-              $("<button id='register_button' class='btn btn-primary'>Zarejestruj się</button>"+
-                  "<button id='sign_in_button' class='btn btn-primary'>Zaloguj się</button>").appendTo("#navbar");
+              $("<button id='register_button' class='btn btn-primary'>" +
+                  "<span class = 'glyphicon glyphicon-edit'></span> Zarejestruj się</button>"+
+                  "<button id='sign_in_button' class='btn btn-primary'>" +
+                  "<span class = 'glyphicon glyphicon-user'></span> Zaloguj się</button>").appendTo("#navbar");
               $("#register_button").on("click",function () {
                   registerController.createForm();
               });
               $("#sign_in_button").on("click",function () {
                   signInController.createForm();
-
               });
           }
       },
