@@ -182,8 +182,8 @@ define([
       }
 
     },
-      createSignInForm:function(app){
-         signInController.createForm(app);
+      createSignInForm:function(){
+         signInController.createForm();
       },
       createRegisterForm:function(){
           var body = $("body");
@@ -3002,22 +3002,57 @@ define([
       }
     },
       przyciski:function(){
-          console.log(tokenUtil.getCookie("token"));
           if(tokenUtil.getCookie("token")){
-                $("<p><button id='logOut' class='btn btn-primary'>Wyloguj się</button>").appendTo("#navbar");
+            var token = tokenUtil.getCookie("token");
+              $.ajax({//zmiana na localhosta
+                  url: "http://localhost:8080/ankieta-web/rest/auth/checkToken/",
+                  dataType: "json",
+                  beforeSend: function(xhr) {
+                      xhr.setRequestHeader("token", token);
+                  },
+                  success: function (status) {
+                    console.log(status);
+                      $("<button id='logOut' class='btn btn-primary'>Wyloguj się</button>").appendTo("#navbar");
+                      $("#logOut").on("click",function () {
+                          signInController.signOut();
+                      });
+                  },
+                  error: function (data) {
+                    console.log(data);
+                      $("<button id='register_button' class='btn btn-primary'>Zarejestruj się</button>"+
+                          "<button id='sign_in_button' class='btn btn-primary'>Zaloguj się</button>").appendTo("#navbar");
+                      $("#register_button").on("click",function () {
+                          registerController.createForm();
+                      });
+                      $("#sign_in_button").on("click",function () {
+                          signInController.createForm();
+
+                      });
+                  }
+              });
+
              /* $("#logOut").attr("style", "display:inline");
               $("#sign_in_button").attr("style", "display:none");
               $("#register_button").attr("style", "display:none");*/
           }else{
-              $("<p><button id='register_button' class='btn btn-primary'>Zarejestruj się</button>"+
+            console.log("else");
+              $("<button id='register_button' class='btn btn-primary'>Zarejestruj się</button>"+
                   "<button id='sign_in_button' class='btn btn-primary'>Zaloguj się</button>").appendTo("#navbar");
+              $("#register_button").on("click",function () {
+                  registerController.createForm();
+              });
+              $("#sign_in_button").on("click",function () {
+                  signInController.createForm();
+
+              });
               /*$("#logOut").attr("style", "display:none");
               $("#sign_in_button").attr("style", "display:inline");
               $("#register_button").attr("style", "display:inline");*/
           }
       },
       wyloguj:function(){
-          signInController.signOut();
+          console.log("funkcja");
+
       }
   });
 });

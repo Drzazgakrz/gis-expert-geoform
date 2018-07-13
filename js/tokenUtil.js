@@ -2,13 +2,13 @@ define([],
     function () {
         var tokenUtil;
         tokenUtil={
-            setCookie : function(name, content, exhours,sign) {
+            setCookie : function(name, content, exhours) {
                 var
             exhours = exhours || 3;
             var d = new Date();
             d.setTime(d.getTime() + (exhours * 60 * 60 * 1000));
             var expires = 'expires=' + d.toUTCString();
-            document.cookie = name + '=' + encodeURIComponent(content) + '; ' + expires +
+            document.cookie = name + '=' + encodeURIComponent(content)+ '; ' + expires +
                 "; path=/";
         },
 
@@ -24,13 +24,24 @@ define([],
                 this.setCookie(name,"",-1,false);
 
         },
-            checkSignIn: function(){
-                return this.zalogowany;
-            },
+            /*getCookieArcGis:function(cname){
+                var name = cname + '=';
+                var ca = document.cookie.split(' ');
+                for (var i =0; i < ca.length; i++) {
+                    console.log(ca[1]);
+                    for (var j = 0; j < ca[1].length; i++) {
+                        var c = ca[1].charAt(j);
+                        while (c.charAt(0) === ' ') c = c.substring(1);
+                        if (c.indexOf(name) !== -1) return decodeURIComponent(c.substring(
+                            name.length, c.length));
+                    }
+                }
+                return '';
+            },*/
 
             getCookie : function(cname) {
                 var name = cname + '=';
-                var ca = document.cookie.split(';');
+                var ca = document.cookie.split(' ');
                 for (var i = 0; i < ca.length; i++) {
                     var c = ca[i];
                     while (c.charAt(0) === ' ') c = c.substring(1);

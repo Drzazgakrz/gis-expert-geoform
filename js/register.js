@@ -1,6 +1,7 @@
 define(['/gis-expert-geoform/js/vendor/jquery.min.js'],function(){
 var registerController = {
-    createForm: function(container){
+    createForm: function(){
+        var container = $("body");
         container.empty();
         container.load("/gis-expert-geoform/js/registration.html",function(){
                 $("#registerButton").on('click',function () {
