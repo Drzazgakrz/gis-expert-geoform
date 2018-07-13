@@ -182,8 +182,8 @@ define([
       }
 
     },
-      createSignInForm:function(app){
-         signInController.createForm(app);
+      createSignInForm:function(){
+         signInController.createForm();
       },
       createRegisterForm:function(){
           var body = $("body");
@@ -3012,25 +3012,36 @@ define([
                   beforeSend: function(xhr) {
                       xhr.setRequestHeader("token", token);
                   },
-                      success: (function (data) {
-                         $("<p><button id='logOut' class='btn btn-primary'>Wyloguj się</button></p>").appendTo("#navbar");
-                      }),
-                      error: (function (data) {
-                          $("<p><button id='register_button' class='btn btn-primary'>Zarejestruj się</button>"+
-                              "<button id='sign_in_button' class='btn btn-primary'>Zaloguj się</button></p>").appendTo("#navbar");
-                      })
+                  success: function (status) {
+                      $("<button id='logOut' class='btn btn-primary'>Wyloguj się</button>").appendTo("#navbar");
+                      $("#logOut").on("click",function () {
+                          signInController.signOut();
+                      });
+                  },
+                  error: function (data) {
+                    console.log(data);
+                      $("<button id='register_button' class='btn btn-primary'>Zarejestruj się</button>"+
+                          "<button id='sign_in_button' class='btn btn-primary'>Zaloguj się</button>").appendTo("#navbar");
+                      $("#register_button").on("click",function () {
+                          registerController.createForm();
+                      });
+                      $("#sign_in_button").on("click",function () {
+                          signInController.createForm();
 
-              })
-              if(zaloguj){
-                $("<p><button id='logOut' class='btn btn-primary'>Wyloguj się</button></p>").appendTo("#navbar");
-              }
+                      });
+                  }
+              });
           }else{
-              $("<p><button id='register_button' class='btn btn-primary'>Zarejestruj się</button>"+
-                  "<button id='sign_in_button' class='btn btn-primary'>Zaloguj się</button></p>").appendTo("#navbar");
+              $("<button id='register_button' class='btn btn-primary'>Zarejestruj się</button>"+
+                  "<button id='sign_in_button' class='btn btn-primary'>Zaloguj się</button>").appendTo("#navbar");
+              $("#register_button").on("click",function () {
+                  registerController.createForm();
+              });
+              $("#sign_in_button").on("click",function () {
+                  signInController.createForm();
+
+              });
           }
       },
-      wyloguj:function(){
-          signInController.signOut();
-      }
   });
 });

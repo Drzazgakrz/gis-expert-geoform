@@ -39,6 +39,7 @@ define(["/gis-expert-geoform/js/tokenUtil.js","application/main", "/gis-expert-g
                         password: password
                     }),
                     success: (function (data) {
+                        console.log(data);
                         $("#errorLoginIsWrong").attr("style", "display:none");
                         $("#errorPasswordIsWrong").attr("style", "display:none");
                         signInController.isSign=true;
@@ -74,22 +75,25 @@ define(["/gis-expert-geoform/js/tokenUtil.js","application/main", "/gis-expert-g
         },
         signOut: function () {
             signInController.isSign=false;
-            //var token = tokenUtil.getCookie('token');
-            tokenUtil.eraseCookie("token");
-          /*  $.ajax({
-                url: "http://localhost:8080/ankieta-web/rest/auth/signOut/token="+token,
+            console.log("funkcja");
+            $.ajax({
+                url: "http://localhost:8080/ankieta-web/rest/auth/signOut",
                 type: "GET",
                 contentType: 'application/json',
-                /!*beforeSend: function(xhr) {
-                    xhr.setRequestHeader("token", token);
-                },*!/
+                beforeSend: function(xhr) {
+                    xhr.setRequestHeader("token", tokenUtil.getCookie("token"));
+
+                },
                 success: (function (data) {
+                    tokenUtil.eraseCookie("token");
                     location.reload();
+
                 }),
                 error: (function (xhr, ajaxOptions, thrownError) {
                     location.reload();
                 })
-            });*/
+            });
+
             location.href="/gis-expert-geoform/";
         }
     };
