@@ -84,7 +84,6 @@ define(["/gis-expert-geoform/js/tokenUtil.js","application/main", "/gis-expert-g
 
                 },
                 success: (function (data) {
-                    console.log("richgwxphwx5ht ");
                     tokenUtil.eraseCookie("token");
                     location.reload();
                 }),

@@ -3029,7 +3029,6 @@ define([
                       });
                       $("#sign_in_button").on("click",function () {
                           signInController.createForm();
-
                       });
                   }
               });
