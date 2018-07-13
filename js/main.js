@@ -3003,32 +3003,30 @@ define([
     },
       przyciski:function(){
           if(tokenUtil.getCookie("token")){
+             /*// $("<p><button id='logOut' class='btn btn-primary'>Wyloguj się</button>").appendTo("#navbar");*/
             var token = tokenUtil.getCookie("token");
+            var zaloguj = false;
               $.ajax({//zmiana na localhosta
                   url: "http://localhost:8080/ankieta-web/rest/auth/checkToken/",
                   dataType: "json",
                   beforeSend: function(xhr) {
                       xhr.setRequestHeader("token", token);
                   },
-                  success: function (status) {
-                      $("<p><button id='logOut' class='btn btn-primary'>Wyloguj się</button>").appendTo("#navbar");
-                  }
-                  ,
-                  error: (function (data) {
-                      $("<p><button id='register_button' class='btn btn-primary'>Zarejestruj się</button>"+
-                          "<button id='sign_in_button' class='btn btn-primary'>Zaloguj się</button>").appendTo("#navbar");
-                  })
-              })
+                      success: (function (data) {
+                         $("<p><button id='logOut' class='btn btn-primary'>Wyloguj się</button></p>").appendTo("#navbar");
+                      }),
+                      error: (function (data) {
+                          $("<p><button id='register_button' class='btn btn-primary'>Zarejestruj się</button>"+
+                              "<button id='sign_in_button' class='btn btn-primary'>Zaloguj się</button></p>").appendTo("#navbar");
+                      })
 
-             /* $("#logOut").attr("style", "display:inline");
-              $("#sign_in_button").attr("style", "display:none");
-              $("#register_button").attr("style", "display:none");*/
+              })
+              if(zaloguj){
+                $("<p><button id='logOut' class='btn btn-primary'>Wyloguj się</button></p>").appendTo("#navbar");
+              }
           }else{
               $("<p><button id='register_button' class='btn btn-primary'>Zarejestruj się</button>"+
-                  "<button id='sign_in_button' class='btn btn-primary'>Zaloguj się</button>").appendTo("#navbar");
-              /*$("#logOut").attr("style", "display:none");
-              $("#sign_in_button").attr("style", "display:inline");
-              $("#register_button").attr("style", "display:inline");*/
+                  "<button id='sign_in_button' class='btn btn-primary'>Zaloguj się</button></p>").appendTo("#navbar");
           }
       },
       wyloguj:function(){
