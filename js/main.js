@@ -3003,7 +3003,9 @@ define([
     },
       przyciski:function(){
           if(tokenUtil.getCookie("token")){
+             /*// $("<p><button id='logOut' class='btn btn-primary'>Wyloguj się</button>").appendTo("#navbar");*/
             var token = tokenUtil.getCookie("token");
+            var zaloguj = false;
               $.ajax({//zmiana na localhosta
                   url: "http://localhost:8080/ankieta-web/rest/auth/checkToken/",
                   dataType: "json",
@@ -3011,7 +3013,6 @@ define([
                       xhr.setRequestHeader("token", token);
                   },
                   success: function (status) {
-                    console.log(status);
                       $("<button id='logOut' class='btn btn-primary'>Wyloguj się</button>").appendTo("#navbar");
                       $("#logOut").on("click",function () {
                           signInController.signOut();
@@ -3030,7 +3031,6 @@ define([
                   }
               });
           }else{
-            console.log("else");
               $("<button id='register_button' class='btn btn-primary'>Zarejestruj się</button>"+
                   "<button id='sign_in_button' class='btn btn-primary'>Zaloguj się</button>").appendTo("#navbar");
               $("#register_button").on("click",function () {
