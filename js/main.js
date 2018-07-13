@@ -3014,11 +3014,17 @@ define([
                     tokenUtil.setCookie("token",status.token,status.expires);
                       $("<button id='logOut' class='btn btn-primary'>" +
                           "<span class = 'glyphicon glyphicon-off'></span> Wyloguj się</button>").appendTo("#navbar");
+
+                    $("<button id='addNotification' class='btn btn-primary'>Dodaj zgłoszenie</button>").appendTo("#navbar");
                       $("#logOut").on("click",function () {
                           signInController.signOut();
                       });
+                      $("#addNotification").on("click",function () {
+                         console.log("dodaje nowe zgloszenie")
+                      });
                   },
                   error: function (data) {
+
                       console.log(data);
                       $("<button id='register_button' class='btn btn-primary'>" +
                           "<span class = 'glyphicon glyphicon-edit'></span> Zarejestruj się</button>"+
@@ -3043,6 +3049,7 @@ define([
               $("#sign_in_button").on("click",function () {
                   signInController.createForm();
               });
+
           }
       },
   });
