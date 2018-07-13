@@ -13,11 +13,9 @@
 <body>-->
 
 
-<div id="pola">
 
-
-    <div class="col-12"><h1 class="title titlerwd" style="margin-top:30px; padding-bottom: 20px;">REJESTRACJA</h1></div>
-
+<div id="menu">
+    <div class="col-12"><h1 class="titleReg titlerwdReg" style="margin-top:30px; padding-bottom: 20px;">REJESTRACJA</h1></div>
     <div id="div" class="container">
         <div class="row">
             <div class="col-sm-1"></div>
@@ -26,14 +24,14 @@
                 <div class="row ">
                     <div class="col">
                         <div>
-                            <div class="inputy">
+                            <div class="inputyReg">
                                 <p>Imię:</p> <input type="text" id="name" class="form-control"
                                                     pattern="([A-ZŁ]{1})+([a-ząęłśćźżó]{2,})"
                                                     required data-toggle="tooltip" data-placement="bottom"
                                                     title="Imię musi zaczynać się z wielkiej litery i mieć co najmniej 3 znaki!"/>
                                 <div class="register-error" id="nameError"></div>
                             </div>
-                            <div class="inputy">
+                            <div class="inputyReg">
                                 <p>Nazwisko:</p> <input type="text" id="lastName" class="form-control"
                                                         pattern="([A-ZŁ]{1})+([a-ząęłśćźżó\-]{2,})" reqiured
                                                         data-toggle="tooltip"
@@ -41,7 +39,7 @@
                                                         title="Nazwisko musi zaczynać się z wielkiej litery i mieć co najmniej 3 znaki!"/>
                                 <div class="register-error" id="lastNameError"></div>
                             </div>
-                            <div class="inputy">
+                            <div class="inputyReg">
                                 <p>E-mail:</p> <input type="email" id="username" class="form-control"
                                                       pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
                                                       required data-toggle="tooltip" data-placement="bottom"
@@ -49,24 +47,23 @@
                                 <div class="register-error" id="usernameError">
                                 </div>
                             </div>
-                            <div class="inputy">
+                            <div class="inputyReg">
                                 <p>Hasło:</p> <input type="password" id="password" class="form-control"
-                                                     pattern="(^.{6,}$)"
+                                                     pattern="(?=^.{6,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
                                                      required data-toggle="tooltip" data-placement="bottom"
                                                      title="Hasło powinno zawierać co najmniej 6 znaków!"/>
                                 <div class="register-error" id="passwordError">
                                 </div>
                             </div>
-                            <div class="inputy">
-
-                                <p>Powtórz Hasło:</p> <input type="password" id="confirmation" class="form-control"
+                            <div class="inputyReg">
+                                <p>Powtórz Hasło:</p> <input type="password" id="confirmpassword" class="form-control"
                                                              pattern="(?=^.{6,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
                                                              required data-toggle="tooltip" data-placement="bottom"
                                                              title="To hasło musi być takie samo jak poprzednie!"/>
                                 <div class="register-error" id="confirmpasswordError">
                                 </div>
                             </div>
-                            <div class="inputy"></div>
+                            <div class="inputyReg"></div>
                         </div>
                     </div>
                 </div>
@@ -77,25 +74,24 @@
                 <div class="row ">
                     <div class="col">
                         <div>
-                            <div class="inputy">
+                            <div class="inputyReg">
                                 <p>Telefon:</p> <input type="text" id="phone" class="form-control" required
-                                                       pattern="(^[0-9]{9,11}$)"
                                                        data-toggle="tooltip"
                                                        data-placement="bottom"
                                                        title="Numer powinien zawierać od 9 do 11 znaków!"/>
                                 <div class="register-error" id="phoneError"></div>
                             </div>
-                            <div class="inputy">
+                            <div class="inputyReg">
                                 <p>Miejscowość:</p> <input type="text" id="city" class="form-control"
-                                                           pattern="([A-ZŁ]{1})+([a-ząęłśćźżó]{2,})" required
+                                                           pattern=([A-ZŁ]{1})+([a-ząęłśćźżó]{2,})" required
                                                            data-toggle="tooltip"
                                                            data-placement="bottom"
                                                            title="Nazwa miasta musi zaczynać się z wielkiej litery i mieć co najmniej 3 znaki!"/>
                                 <div class="register-error" id="cityError"></div>
                             </div>
-                            <div class="inputy">
+                            <div class="inputyReg">
                                 <p>Ulica:</p> <input type="text" id="street" class="form-control"
-                                                     pattern="([A-ZŁ]{1})+([a-ząęłśćźżó]{2,})" required
+                                                     pattern=([A-ZŁ]{1})+([a-ząęłśćźżó]{2,})" required
                                                      data-toggle="tooltip"
                                                      data-placement="bottom"
                                                      title="Nazwa ulicy musi zaczynać się z wielkiej litery i mieć co najmniej 3 znaki!"/>
@@ -103,27 +99,22 @@
 
                                 </div>
                             </div>
-                            <div class="inputy">
+                            <div class="inputyReg">
                                 <p>Nr domu:</p> <input type="text" id="buildingNumber" class="form-control" required
-
-                                                       pattern="(^[0-9]{1,3}$)"
-
                                                        data-toggle="tooltip"
                                                        data-placement="bottom"
                                                        title="Numer powinien zawierać cyfry od 0 do 9!"/>
                                 <div class="register-error" id="buildingNumberError">
                                 </div>
                             </div>
-                            <div class="inputy">
+                            <div class="inputyReg">
                                 <p>Nr mieszkania:</p> <input type="text" id="flatNumber" class="form-control" required
-
                                                              data-toggle="tooltip"
                                                              data-placement="bottom"
                                                              title="Numer powinien zawierać cyfry od 0 do 9!"/>
                             </div>
-                            <div class="inputy">
+                            <div class="inputyReg">
                                 <p>Kod pocztowy:</p> <input type="text" id="zipCode" class="form-control" required
-                                                            pattern="(^[0-9]{2}-[0-9]{3}$)"
                                                             data-toggle="tooltip"
                                                             data-placement="bottom"
                                                             title="Format kodu pocztowego: XX-XXX"/>
@@ -138,16 +129,14 @@
         <div class="row  ">
 
             <div class="col-sm-4"></div>
-
             <div class="col-sm-2 left przyciskpad">
-                <button id="registerButton" type="button" class=" btn btn-primary" class="przyciskpad">Stwórz konto</button>
+                <button id="registerButton" type="button" class=" btn btn-primary przyciskpadReg" >Stwórz konto</button>
             </div>
             <div class="col-sm-2 right przyciskpad">
-                <button type="button" class=" btn btn-primary right przyciskpad2" id="back">Powrót</button>
+                <button type="button" class=" btn btn-primary right przyciskpad2Reg" id="back">Powrót</button>
             </div>
         </div>
         <div class="col-sm-4"></div>
-
     </div>
 </div>
 <script>
@@ -156,3 +145,7 @@
     });
 </script>
 </div>
+
+
+<!--</body>
+</html>-->

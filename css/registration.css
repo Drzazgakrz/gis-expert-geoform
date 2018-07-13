@@ -4,18 +4,18 @@
     background-image: url("https://v.wpimg.pl/NzQyMTk0JxN-NmJiXwQ2TmJJYjBFRz4TPB5jJAcff0hpQHttXwh3SnxIemRaAX1KZkh6ewdFLBY4F2M-G1c=");
     background-size: cover;
 }
-.title{
+.titleReg{
     text-align: center;
     font-size: 30px;
 }
-#pola {
+#menu {
     border-style: solid;
     border-width: thin;
     border-color: white;
     background-color: rgba(25, 25, 31, 0.4);
     margin-top: 50px;
     margin-bottom: 50px;
-    text-align:center;
+    text-align: center;
     margin-left: 15%;
     margin-right: 15%;
     font-weight: normal;
@@ -24,22 +24,25 @@
     color: white;
     display: inline-block;
     align-items: center;
-
 }
 
-.inputy{
+.inputyReg{
+
     margin-left: 5%;
     margin-right: 5%;
 }
 
-.przyciskpad{
+
+.przyciskpadReg{
+>>>>>>> 790390bd53f2327279ce61fdfbee5f48de2542df
 
     margin-top:4%;
     margin-bottom:4%;
     margin-right:3%;
 }
 
-.przyciskpad2{
+.przyciskpad2Reg{
+>>>>>>> 790390bd53f2327279ce61fdfbee5f48de2542df
 
     margin-top:4%;
     margin-bottom:4%;
@@ -47,18 +50,18 @@
 }
 
 @media(max-width:360px){
-    .titlerwd{
+    .titlerwdReg{
         font-size: 30px;
     }
 }
 
 @media(max-width: 768px){
-.rowinput{
-    padding:5%;
-}
-.przyciskpad{
-    margin:0 auto;
-}}
+    .rowinput{
+        padding:5%;
+    }
+    .przyciskpad{
+        margin:0 auto;
+    }}
 
 label { display: block; }
 .hint { display: none; color: white; font-style: italic; }
@@ -75,6 +78,6 @@ input:focus + .hint { display: inline; }
     }}
 @media (min-width: 768px){
     .container {
-        width: auto;
+        width: 100%;
     }}
 

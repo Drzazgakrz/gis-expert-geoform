@@ -43,6 +43,7 @@ define([
     "/gis-expert-geoform/js/register.js",
     "/gis-expert-geoform/js/signIn.js",
     "/gis-expert-geoform/js/resetPassword.js",
+    "/gis-expert-geoform/js/tokenUtil.js",
     "dojo/NodeList-traverse",
     "application/wrapper/main-jquery-deps",
     "dojo/domReady!"
@@ -89,10 +90,11 @@ define([
   a11yclick,
   registerController,
   signInController,
-  resetPasswordController) {
+  resetPasswordController,
+  tokenUtil) {
 
   var NORTHING_OFFSET = 10000000.0; // (meters)
-
+    var isS=false;
   return declare([], {
     arrPendingAttachments: [],
     objFailedAttachments: {},
@@ -113,7 +115,6 @@ define([
     dateFormat: "LLL",
 
     startup: function (config, appResponse, isPreview, node) {
-
       document.documentElement.lang = kernel.locale;
 
       this._appResponse = appResponse;
@@ -181,8 +182,8 @@ define([
       }
 
     },
-      createSignInForm:function(){
-          signInController.createForm();
+      createSignInForm:function(app){
+         signInController.createForm(app);
       },
       createRegisterForm:function(){
           var body = $("body");
@@ -2999,6 +3000,24 @@ define([
       if (domClass.contains(node, "errorMessage")) {
         domConstruct.destroy(node);
       }
-    }
+    },
+      przyciski:function(){
+          console.log(tokenUtil.getCookie("token"));
+          if(tokenUtil.getCookie("token")){
+                $("<p><button id='logOut' class='btn btn-primary'>Wyloguj się</button>").appendTo("#navbar");
+             /* $("#logOut").attr("style", "display:inline");
+              $("#sign_in_button").attr("style", "display:none");
+              $("#register_button").attr("style", "display:none");*/
+          }else{
+              $("<p><button id='register_button' class='btn btn-primary'>Zarejestruj się</button>"+
+                  "<button id='sign_in_button' class='btn btn-primary'>Zaloguj się</button>").appendTo("#navbar");
+              /*$("#logOut").attr("style", "display:none");
+              $("#sign_in_button").attr("style", "display:inline");
+              $("#register_button").attr("style", "display:inline");*/
+          }
+      },
+      wyloguj:function(){
+          signInController.signOut();
+      }
   });
 });

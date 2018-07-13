@@ -2,7 +2,8 @@ define([],
     function () {
         var tokenUtil;
         tokenUtil={
-            setCookie : function(name, content, exhours) {
+            setCookie : function(name, content, exhours,sign) {
+                var
             exhours = exhours || 3;
             var d = new Date();
             d.setTime(d.getTime() + (exhours * 60 * 60 * 1000));
@@ -20,8 +21,12 @@ define([],
             },
 
             eraseCookie :function(name){
-                this.setCookie(name,"",-1);
+                this.setCookie(name,"",-1,false);
+
         },
+            checkSignIn: function(){
+                return this.zalogowany;
+            },
 
             getCookie : function(cname) {
                 var name = cname + '=';
