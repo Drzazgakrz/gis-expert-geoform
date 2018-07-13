@@ -3026,14 +3026,9 @@ define([
                       });
                       $("#sign_in_button").on("click",function () {
                           signInController.createForm();
-
                       });
                   }
               });
-
-             /* $("#logOut").attr("style", "display:inline");
-              $("#sign_in_button").attr("style", "display:none");
-              $("#register_button").attr("style", "display:none");*/
           }else{
             console.log("else");
               $("<button id='register_button' class='btn btn-primary'>Zarejestruj się</button>"+
@@ -3045,14 +3040,7 @@ define([
                   signInController.createForm();
 
               });
-              /*$("#logOut").attr("style", "display:none");
-              $("#sign_in_button").attr("style", "display:inline");
-              $("#register_button").attr("style", "display:inline");*/
           }
       },
-      wyloguj:function(){
-          console.log("funkcja");
-
-      }
   });
 });

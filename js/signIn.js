@@ -85,7 +85,6 @@ define(["/gis-expert-geoform/js/tokenUtil.js","application/main", "/gis-expert-g
 
                 },
                 success: (function (data) {
-                    tokenUtil.eraseCookie("token");
                     location.reload();
 
                 }),
@@ -93,7 +92,7 @@ define(["/gis-expert-geoform/js/tokenUtil.js","application/main", "/gis-expert-g
                     location.reload();
                 })
             });
-
+            tokenUtil.eraseCookie("token");
             location.href="/gis-expert-geoform/";
         }
     };
