@@ -45,159 +45,167 @@
 <a id="top"><!-- Top of page --></a>
 <div class="loading-indicator">
     <!--<div class="icon-loading"></div>-->
+
     <div class="col-12">
         <div class="container">
             <div class="row">
-                <div class="col-sm-2"></div>
-                <div id="navbar">
+                <div class="col-md-10"></div>
+                <div id="navbar" class="col-md-2 right">
 
-                </div>
-                <style>.embed-container {
-                    position: relative;
-                    padding-bottom: 87%;
-                    height: 0;
-                    max-width: 83%;
-                }
 
-                .embed-container iframe, .embed-container object, .embed-container iframe {
-                    position: absolute;
-                    top: 3%;
-                    width: 83%;
-                    height: 90%;
-                }
-
-                small {
-                    position: absolute;
-                    z-index: 40;
-                    bottom: 0;
-                    margin-bottom: -15px;
-                }</style>
-                <div class="embed-container">
-                    <small><a
-                            href="http://damian-galan.maps.arcgis.com/apps/Embed/index.html?webmap=516d939901dc40fa8f116efa9b59dfbf&extent=21.8953,50.988,23.3317,51.4362&home=true&zoom=true&scale=true&search=true&searchextent=true&disable_scroll=false&theme=light"
-                            style="color:#0000FF;text-align:left" target="_blank">View larger map</a></small>
-                    <br>
-                    <iframe width="300" height="260" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-                            title="Zgłoszenia mieszkancow"
-                            src="http://damian-galan.maps.arcgis.com/apps/Embed/index.html?webmap=516d939901dc40fa8f116efa9b59dfbf&extent=21.8953,50.988,23.3317,51.4362&home=true&zoom=true&previewImage=true&scale=true&search=true&searchextent=true&disable_scroll=false&theme=light"></iframe>
-                </div>
-                <div class="alert alert-danger"><span class="icon-frown"></span> <span id="loading_message"></span>
                 </div>
             </div>
+            <div class="row">
+                <style>
+                    .embed-container {
+                        position: relative;
+                        padding-bottom: 87%;
+                        height: 0;
+                        max-width: 100%;
+                        padding-top: 0;
+                        margin: 0;
+                    }
 
+                    .embed-container iframe, .embed-container object, .embed-container iframe {
+                        position: absolute;
+                        top: 0;
+                        width: 100%;
+                        height: 100%;
+                        margin: 0;
+                    }
+
+                    small {
+                        position: absolute;
+                        z-index: 40;
+                        bottom: 0;
+                        margin-bottom: -15px;
+                    }
+                </style>
+                <div class="col-md-12">
+                    <div class="embed-container">
+                        <small><a
+                                href="http://damian-galan.maps.arcgis.com/apps/Embed/index.html?webmap=516d939901dc40fa8f116efa9b59dfbf&extent=21.8953,50.988,23.3317,51.4362&home=true&zoom=true&scale=true&search=true&searchextent=true&disable_scroll=false&theme=light"
+                                style="color:#0000FF;text-align:left" target="_blank">View larger map</a></small>
+                        <br>
+                        <iframe width="300" height="260" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                                title="Zgłoszenia mieszkancow"
+                                src="http://damian-galan.maps.arcgis.com/apps/Embed/index.html?webmap=516d939901dc40fa8f116efa9b59dfbf&extent=21.8953,50.988,23.3317,51.4362&home=true&zoom=true&previewImage=true&scale=true&search=true&searchextent=true&disable_scroll=false&theme=light"></iframe>
+                    </div>
+                    <div class="alert alert-danger"><span class="icon-frown"></span> <span id="loading_message"></span>
+                    </div>
+                </div>
+            </div>
         </div>
-
     </div>
 </div>
-</div>
-<div id="fullscreen_container" class="fullscreen-container"></div>
-<div id="parentContainter" class="app-content"></div>
-<script type="text/javascript">
-    var package_path = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
-    var dojoConfig = {
-        async: true,
-        has: {
-            "esri-featurelayer-webgl": 1
-        },
-        // The locationPath logic below may look confusing but all its doing is
-        // enabling us to load the api from a CDN and load local modules from the correct location.
-        packages: [{
-            name: "application",
-            location: package_path + '/js'
-        }, {
-            name: "config",
-            location: package_path + '/config'
-        }, {
-            name: "arcgis_templates",
-            location: package_path + '/..'
-        }, {
-            name: "vendor",
-            location: package_path + '/js/vendor'
-        }, {
-            name: "views",
-            location: package_path + '/views'
-        }]
-    };
-    // Have to handle a locale parameter before dojo is loaded
-    if (location.search.match(/locale=([\w-]+)/)) {
-        dojoConfig.locale = RegExp.$1;
-    }
-</script>
-<script type="text/javascript" src="https://js.arcgis.com/3.24"></script>
-<script type="text/javascript" src="js/vendor/offline/offline.min.js"></script>
-<script type="text/javascript" src="js/vendor/IndexedDBShim.min.js"></script>
-<script type="text/javascript">
-    require(["config/templateConfig", "application/template", "application/main",], function (templateOptions, Template, Main) {
-        // start template
-        var myTemplate = new Template(templateOptions);
-        // create my main application. Start placing your logic in the main.js file.
-        var myApp = new Main();
-        myApp.przyciski();
+    <div id="fullscreen_container" class="fullscreen-container"></div>
+    <div id="parentContainter" class="app-content"></div>
+    <script type="text/javascript">
+        var package_path = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/'));
+        var dojoConfig = {
+            async: true,
+            has: {
+                "esri-featurelayer-webgl": 1
+            },
+            // The locationPath logic below may look confusing but all its doing is
+            // enabling us to load the api from a CDN and load local modules from the correct location.
+            packages: [{
+                name: "application",
+                location: package_path + '/js'
+            }, {
+                name: "config",
+                location: package_path + '/config'
+            }, {
+                name: "arcgis_templates",
+                location: package_path + '/..'
+            }, {
+                name: "vendor",
+                location: package_path + '/js/vendor'
+            }, {
+                name: "views",
+                location: package_path + '/views'
+            }]
+        };
+        // Have to handle a locale parameter before dojo is loaded
+        if (location.search.match(/locale=([\w-]+)/)) {
+            dojoConfig.locale = RegExp.$1;
+        }
+    </script>
+    <script type="text/javascript" src="https://js.arcgis.com/3.24"></script>
+    <script type="text/javascript" src="js/vendor/offline/offline.min.js"></script>
+    <script type="text/javascript" src="js/vendor/IndexedDBShim.min.js"></script>
+    <script type="text/javascript">
+        require(["config/templateConfig", "application/template", "application/main",], function (templateOptions, Template, Main) {
+            // start template
+            var myTemplate = new Template(templateOptions);
+            // create my main application. Start placing your logic in the main.js file.
+            var myApp = new Main();
+            myApp.przyciski();
 
-        // create my main application. Start placing your logic in the main.js file.
-        /*  myTemplate.startup().then(function (config) {
-              //The config object contains the following properties: helper services, (optionally)
-              //i18n, appid, webmap and any custom values defined by the application.
-              //In this example we have one called theme.
-              /!*var appResponse = config.appResponse;
-              if(config.appResponse){
-                delete config.appResponse;
-              }
+            // create my main application. Start placing your logic in the main.js file.
+            /*  myTemplate.startup().then(function (config) {
+                  //The config object contains the following properties: helper services, (optionally)
+                  //i18n, appid, webmap and any custom values defined by the application.
+                  //In this example we have one called theme.
+                  /!*var appResponse = config.appResponse;
+                  if(config.appResponse){
+                    delete config.appResponse;
+                  }
 
-              if (config.edit && config.appid) {
-                  // get the app builder code
-                  require(["application/builder/builder"], function (builderMode) {
-                      // create configuration app builder
-                      var builder = new builderMode(config, appResponse);
-                      // start it
-                      builder.startup().otherwise(function (error) {
-                          // something went wrong. Let's report it.
-                          myApp.reportError(error);
+                  if (config.edit && config.appid) {
+                      // get the app builder code
+                      require(["application/builder/builder"], function (builderMode) {
+                          // create configuration app builder
+                          var builder = new builderMode(config, appResponse);
+                          // start it
+                          builder.startup().otherwise(function (error) {
+                              // something went wrong. Let's report it.
+                              myApp.reportError(error);
+                          });
                       });
-                  });
-              } else {
-                  //lets go!
-                  myApp.startup(config, appResponse);
+                  } else {
+                      //lets go!
+                      myApp.startup(config, appResponse);
 
-                  // var token;
-                  // $.getJSON("http://localhost:8080/ankieta-web/rest/auth/getAnonymousAccess", function (data) {
-                  //    token =data.arcGisToken;
+                      // var token;
+                      // $.getJSON("http://localhost:8080/ankieta-web/rest/auth/getAnonymousAccess", function (data) {
+                      //    token =data.arcGisToken;
+                      //
+                      //     $.ajax({
+                      //         contentType: "application/json",
+                      //         method:"POST",
+                      //         url: 'http://localhost/gis-expert-geoform/viewer.html?webmap=516d939901dc40fa8f116efa9b59dfbf',
+                      //         json:true,
+                      //         form: {
+                      //             f: 'json',
+                      //             token: token,
+                      //         },
+                      //         success: function(result,status,xhr){
+                      //             //
+                      //             console.log('result');
+                      //             $("#nazwa").append(xhr.responseText);
+                      //         },
+                      //         error: function(error, response, body) {
+                      //             console.log(body);
+                  }
+                  //         });
                   //
-                  //     $.ajax({
-                  //         contentType: "application/json",
-                  //         method:"POST",
-                  //         url: 'http://localhost/gis-expert-geoform/viewer.html?webmap=516d939901dc40fa8f116efa9b59dfbf',
-                  //         json:true,
-                  //         form: {
-                  //             f: 'json',
-                  //             token: token,
-                  //         },
-                  //         success: function(result,status,xhr){
-                  //             //
-                  //             console.log('result');
-                  //             $("#nazwa").append(xhr.responseText);
-                  //         },
-                  //         error: function(error, response, body) {
-                  //             console.log(body);
-              }
-              //         });
-              //
-              //
-              //    });
-              console.log();
+                  //
+                  //    });
+                  console.log();
 
 
-          });
+              });
 
 
 
-              }*!/
-          }, function (error) {
-              // something went wrong. Let's report it.
-              myApp.reportError(error);
-          });*/
-    });
-</script>
+                  }*!/
+              }, function (error) {
+                  // something went wrong. Let's report it.
+                  myApp.reportError(error);
+              });*/
+        });
+    </script>
 </body>
 
 </html>

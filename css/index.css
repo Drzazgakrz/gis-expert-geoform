@@ -1,7 +1,18 @@
 #navbar{
     float:right;
+    padding: 0;
+    margin: 0;
 
 }
 .przyciskiIndex{
     float:right;
+    padding: 0;
+    margin: 0;
+}
+.row{
+    margin:0;
+    padding:0;
+}
+.col-md-12{
+    margin:0;
 }

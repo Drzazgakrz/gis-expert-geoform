@@ -3011,11 +3011,14 @@ define([
                       xhr.setRequestHeader("token", token);
                   },
                   success: function (status) {
+
                     tokenUtil.setCookie("token",status.token,status.expires);
+                    $("<button id='addNotification' class='btn btn-primary'>"+
+                          "<span class='glyphicon glyphicon-plus'></span>Dodaj zgłoszenie</button>").appendTo("#navbar");
                       $("<button id='logOut' class='btn btn-primary'>" +
                           "<span class = 'glyphicon glyphicon-off'></span> Wyloguj się</button>").appendTo("#navbar");
 
-                    $("<button id='addNotification' class='btn btn-primary'>Dodaj zgłoszenie</button>").appendTo("#navbar");
+
                       $("#logOut").on("click",function () {
                           signInController.signOut();
                       });
