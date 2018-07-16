@@ -93,6 +93,26 @@ define(["/gis-expert-geoform/js/tokenUtil.js","application/main", "/gis-expert-g
             });
             tokenUtil.eraseCookie("token");
             location.href="/gis-expert-geoform/";
+        },
+        getMap: function(token){
+            $.ajax({
+                contentType: "application/json",
+                method: "POST",
+                url: 'http://localhost/gis-expert-geoform/viewer.html?webmap=516d939901dc40fa8f116efa9b59dfbf',
+                json: true,
+                form: {
+                    f: 'json',
+                    token: token,
+                },
+                success: function (result, status, xhr) {
+                    var file = IO.getFile("Desktop", "myinfo.txt");
+                    var stream = IO.newOutputStream(file, "text");
+                    location.href="/gis-expert-geoform/map-form.html";
+                },
+                error: function (error, response, body) {
+                    console.log(body);
+                }
+            });
         }
     };
     return signInController;
