@@ -3024,8 +3024,6 @@ define([
                       });
                   },
                   error: function (data) {
-
-                      console.log(data);
                       $("<button id='register_button' class='btn btn-primary'>" +
                           "<span class = 'glyphicon glyphicon-edit'></span> Zarejestruj się</button>"+
                           "<button id='sign_in_button' class='btn btn-primary'>" +
