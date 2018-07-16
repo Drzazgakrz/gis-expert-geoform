@@ -4,6 +4,3 @@
 .przyciskiIndex{
     float:right;
 }
-#register_button,#sign_in_button{
-    z-index: auto;
-}
