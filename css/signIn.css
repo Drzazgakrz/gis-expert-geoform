@@ -46,13 +46,6 @@ body{
     .container {
         width: 100%;
     }}
-@media (max-width: 767px){
-    #pola{
-        width:50%;
-        margin-left:25%;
-
-    }
-}
 
 #errorLoginIsEmpty{
     color: red;
@@ -75,8 +68,11 @@ body{
 }
 @media (max-width: 767px){
     #pola{
-        width:50%;
-        margin-left:25%;
-
+        width:60%;
+        margin-left:20%;
     }
+}
+
+#pola input{
+    color:black;
 }
