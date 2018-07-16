@@ -3013,9 +3013,9 @@ define([
                   success: function (status) {
 
                     tokenUtil.setCookie("token",status.token,status.expires);
-                    $("<button id='addNotification' class='btn btn-primary '>"+
+                    $("<button id='addNotification' class='btn btn-primary indexButton'>"+
                           "<span class='glyphicon glyphicon-plus'></span>Dodaj zgłoszenie</button>").appendTo("#navbar");
-                      $("<button id='logOut' class='btn btn-primary '>" +
+                      $("<button id='logOut' class='btn btn-primary indexButton'>" +
                           "<span class = 'glyphicon glyphicon-off'></span> Wyloguj się</button>").appendTo("#navbar");
 
 
@@ -3027,9 +3027,9 @@ define([
                       });
                   },
                   error: function (data) {
-                      $("<button id='register_button' class='btn btn-primary'>" +
+                      $("<button id='register_button' class='btn btn-primary indexButton'>" +
                           "<span class = 'glyphicon glyphicon-edit'></span> Zarejestruj się</button>"+
-                          "<button id='sign_in_button' class='btn btn-primary'>" +
+                          "<button id='sign_in_button' class='btn btn-primary indexButton'>" +
                           "<span class = 'glyphicon glyphicon-user'></span> Zaloguj się</button>").appendTo("#navbar");
                       $("#register_button").on("click",function () {
                           registerController.createForm();
@@ -3040,9 +3040,9 @@ define([
                   }
               });
           }else{
-              $("<button id='register_button' class='btn btn-primary'>" +
+              $("<button id='register_button' class='btn btn-primary indexButton'>" +
                   "<span class = 'glyphicon glyphicon-edit'></span> Zarejestruj się</button>"+
-                  "<button id='sign_in_button' class='btn btn-primary'>" +
+                  "<button id='sign_in_button' class='btn btn-primary indexButton'>" +
                   "<span class = 'glyphicon glyphicon-user'></span> Zaloguj się</button>").appendTo("#navbar");
               $("#register_button").on("click",function () {
                   registerController.createForm();
