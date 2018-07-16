@@ -1,8 +1,9 @@
 #navbar{
     float:right;
-    width:30%;
-    height:50%;
 }
 .przyciskiIndex{
     float:right;
+}
+#register_button,#sign_in_button{
+    z-index: auto;
 }
