@@ -66,13 +66,9 @@ body{
 .pola2{
     margin-left: 5%;
 }
-@media (max-width: 767px){
-    #pola{
-        width:60%;
-        margin-left:20%;
-    }
-}
+
 
 #pola input{
     color:black;
 }
+

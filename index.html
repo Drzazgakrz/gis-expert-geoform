@@ -44,55 +44,69 @@
 <body id="geoform" class="claro app-loading">
 <a id="top"><!-- Top of page --></a>
 <div class="loading-indicator">
-    <!--<div class="icon-loading"></div>-->
-
     <div class="col-12">
         <div class="container">
-            <div class="row">
-                <div class="col-md-10"></div>
-                <div id="navbar" class="col-md-2 right">
+        <!--<div class="row" style="padding: 0;">-->
+            <!--<div class="col-md-12">-->
+
+                <!--<nav class="navbar navbar-default" >-->
+                    <!--<div class="container-fluid">-->
+                        <!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">-->
+                    <!--<ul id="navbar" class="nav navbar-nav navbar-right">-->
+
+                    <!--</ul>-->
+                    <!--</div>-->
+                <!--</nav>-->
+            <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+
+                        <ul class="nav navbar-nav navbar-right" id="navbar">
 
 
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        <div class="row">
+            <style>
+                .embed-container {
+                    position: relative;
+                    padding-bottom: 87%;
+                    height: 0;
+                    max-width: 100%;
+                    padding-top: 0;
+                    margin: 0;
+                }
+
+                .embed-container iframe, .embed-container object, .embed-container iframe {
+                    position: absolute;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    margin: 0;
+                }
+
+                small {
+                    position: absolute;
+                    z-index: 40;
+                    bottom: 0;
+                    margin-bottom: -15px;
+                }
+            </style>
+            <div class="col-md-12">
+                <div class="embed-container">
+                    <small><a
+                            href="http://damian-galan.maps.arcgis.com/apps/Embed/index.html?webmap=516d939901dc40fa8f116efa9b59dfbf&extent=21.8953,50.988,23.3317,51.4362&home=true&zoom=true&scale=true&search=true&searchextent=true&disable_scroll=false&theme=light"
+                            style="color:#0000FF;text-align:left" target="_blank">View larger map</a></small>
+                    <br>
+                    <iframe width="300" height="260" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                            title="Zgłoszenia mieszkancow"
+                            src="http://damian-galan.maps.arcgis.com/apps/Embed/index.html?webmap=516d939901dc40fa8f116efa9b59dfbf&extent=21.8953,50.988,23.3317,51.4362&home=true&zoom=true&previewImage=true&scale=true&search=true&searchextent=true&disable_scroll=false&theme=light"></iframe>
                 </div>
-            </div>
-            <div class="row">
-                <style>
-                    .embed-container {
-                        position: relative;
-                        padding-bottom: 87%;
-                        height: 0;
-                        max-width: 100%;
-                        padding-top: 0;
-                        margin: 0;
-                    }
-
-                    .embed-container iframe, .embed-container object, .embed-container iframe {
-                        position: absolute;
-                        top: 0;
-                        width: 100%;
-                        height: 100%;
-                        margin: 0;
-                    }
-
-                    small {
-                        position: absolute;
-                        z-index: 40;
-                        bottom: 0;
-                        margin-bottom: -15px;
-                    }
-                </style>
-                <div class="col-md-12">
-                    <div class="embed-container">
-                        <small><a
-                                href="http://damian-galan.maps.arcgis.com/apps/Embed/index.html?webmap=516d939901dc40fa8f116efa9b59dfbf&extent=21.8953,50.988,23.3317,51.4362&home=true&zoom=true&scale=true&search=true&searchextent=true&disable_scroll=false&theme=light"
-                                style="color:#0000FF;text-align:left" target="_blank">View larger map</a></small>
-                        <br>
-                        <iframe width="300" height="260" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-                                title="Zgłoszenia mieszkancow"
-                                src="http://damian-galan.maps.arcgis.com/apps/Embed/index.html?webmap=516d939901dc40fa8f116efa9b59dfbf&extent=21.8953,50.988,23.3317,51.4362&home=true&zoom=true&previewImage=true&scale=true&search=true&searchextent=true&disable_scroll=false&theme=light"></iframe>
-                    </div>
-                    <div class="alert alert-danger"><span class="icon-frown"></span> <span id="loading_message"></span>
-                    </div>
+                    <div class="alert alert-danger"><span class="icon-frown"></span> <span id="loading_message"></span></div>
                 </div>
             </div>
         </div>
@@ -167,43 +181,7 @@
                       //lets go!
                       myApp.startup(config, appResponse);
 
-                      // var token;
-                      // $.getJSON("http://localhost:8080/ankieta-web/rest/auth/getAnonymousAccess", function (data) {
-                      //    token =data.arcGisToken;
-                      //
-                      //     $.ajax({
-                      //         contentType: "application/json",
-                      //         method:"POST",
-                      //         url: 'http://localhost/gis-expert-geoform/viewer.html?webmap=516d939901dc40fa8f116efa9b59dfbf',
-                      //         json:true,
-                      //         form: {
-                      //             f: 'json',
-                      //             token: token,
-                      //         },
-                      //         success: function(result,status,xhr){
-                      //             //
-                      //             console.log('result');
-                      //             $("#nazwa").append(xhr.responseText);
-                      //         },
-                      //         error: function(error, response, body) {
-                      //             console.log(body);
-                  }
-                  //         });
-                  //
-                  //
-                  //    });
-                  console.log();
-
-
-              });
-
-
-
-                  }*!/
-              }, function (error) {
-                  // something went wrong. Let's report it.
-                  myApp.reportError(error);
-              });*/
+*/
         });
     </script>
 </body>
