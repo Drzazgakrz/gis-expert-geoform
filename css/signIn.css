@@ -23,7 +23,7 @@ body{
     margin-left: 38%;
     margin-right: 38%;
     font-weight: normal;
-    width: 24%;
+    width: 28%;
     border-radius: 10px;
     color: white;
     display: inline-block;
@@ -46,10 +46,17 @@ body{
     .container {
         width: 100%;
     }}
+@media (max-width: 767px){
+    #pola{
+        width:50%;
+        margin-left:25%;
+
+    }
+}
 
 #errorLoginIsEmpty{
     color: red;
-    display:none;
+    display: none;
 }
 #errorPasswordIsEmpty{
     color: red;
@@ -57,9 +64,12 @@ body{
 }
 #errorLoginIsWrong{
     color: red;
-    display:none;
+    display: none;
 }
 #errorPasswordIsWrong{
     color: red;
     display:none;
+}
+.pola2{
+    margin-left: 5%;
 }
