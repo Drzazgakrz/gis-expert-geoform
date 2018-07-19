@@ -94,7 +94,7 @@ define(["/gis-expert-geoform/js/tokenUtil.js","application/main", "/gis-expert-g
             tokenUtil.eraseCookie("token");
             location.href="/gis-expert-geoform/";
         },
-        getMap: function(token){
+        getMap: function(){
             $.ajax({
                 contentType: "application/json",
                 method: "POST",
@@ -105,9 +105,7 @@ define(["/gis-expert-geoform/js/tokenUtil.js","application/main", "/gis-expert-g
                     token: token,
                 },
                 success: function (result, status, xhr) {
-                    var file = IO.getFile("Desktop", "myinfo.txt");
-                    var stream = IO.newOutputStream(file, "text");
-                    location.href="/gis-expert-geoform/map-form.html";
+                    location.href = "http://damian-galan.maps.arcgis.com/apps/GeoForm/index.html?appid=0aee2b084e334f738175231019c3f82d"
                 },
                 error: function (error, response, body) {
                     console.log(body);

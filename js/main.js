@@ -2301,7 +2301,17 @@ define([
             });
             featureData.geometry = {};
             featureData.geometry = new Point(Number(this.addressGeometry.x), Number(this.addressGeometry.y), this.map.spatialReference);
+            featureData.user = tokenUtil.getCookie("token");
+            $.ajax({
+               url: "localhost:8080/ankieta-web/rest/auth/submitSurvey",
+                data:featureData.toString(),
+                success:function () {
+                    alert("Przesłanie formularza powiodło się");
+                }
+            });
+
             //code for apply-edits
+            /*console.log(featureData);
             this._formLayer.applyEdits([featureData], null, null, lang.hitch(this, function (addResults) {
                 // Add attachment on success
                 if (addResults[0].success && this.isHumanEntry) {
@@ -2341,7 +2351,8 @@ define([
                 this._openErrorModal(error);
                 // log for development
                 console.log(nls.user.addFeatureFailedMessage);
-            }));
+            }));*/
+
         },
         _resetAndShare: function () {
             // remove graphic
@@ -2368,6 +2379,7 @@ define([
             currentBadge = query(".file-upload-status-badge[data-badge=" + currentElement[0].id + "]")[0];
             //re-enabling the file i/p field before sending to attach
             domAttr.set(currentElement[0], "disabled", false);
+
             this._formLayer.addAttachment(recordId, currentElement, lang.hitch(this, function () {
                 if (dom.byId("fileUploadStatusMsgContainer")) {
                     this.flagAttachingPrevFile = false;
@@ -3024,7 +3036,7 @@ define([
                             signInController.signOut();
                         });
                         $("#addNotification").on("click", function () {
-                            signInController.getMap(token);
+                            location.href = status.url;
                         });
                     },
                     error: function () {
