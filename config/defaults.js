@@ -18,7 +18,7 @@ define({
     "oauthappid": null,
     //Enter the url to the proxy if needed by the applcation. See the "Using the proxy page" help topic for details
     // //developers.arcgis.com/en/javascript/jshelp/ags_proxy.html
-    "proxyurl": "",
+    "proxyurl": "http://localhost:8080/ankieta-web/proxy.jsp",
     //Example of a template specific property. If your template had several color schemes
     //you could define the default here and setup configuration settings to allow users to choose a different
     //color theme.

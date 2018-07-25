@@ -87,7 +87,7 @@
                         margin-bottom: 5%;
                     }
                 </style>
-                <div id = "map" class="col-md-12">
+                <div id="map" class="col-md-12">
                     <div class="embed-container">
                         <iframe width="300" height="260" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
                                 title="Zgłoszenia mieszkancow"
@@ -137,41 +137,25 @@
 <script type="text/javascript">
     require(["config/templateConfig", "application/template", "application/main",], function (templateOptions, Template, Main) {
         // start template
-        var myTemplate = new Template(templateOptions);
+
         // create my main application. Start placing your logic in the main.js file.
         var myApp = new Main();
         myApp.przyciski();
+        $(document).ready(function () {
+            if ($("#addNotification")) {
+                $("#addNotification").on("click", function () {
+                    var myTemplate = new Template(templateOptions);
+                    myTemplate.startup().then(function (config) {
+                        var appResponse = config.appResponse;
+                        myApp.startup(config, appResponse)
+                    });
+                });
+            }
+        })
 
         // create my main application. Start placing your logic in the main.js file.
-        myTemplate.startup().then(function (config) {
-            //The config object contains the following properties: helper services, (optionally)
-            //i18n, appid, webmap and any custom values defined by the application.
-            //In this example we have one called theme.
-            // if (config.appResponse) {
-            //     delete config.appResponse;
-            // }
-            var appResponse = config.appResponse;
-            // if (config.edit && config.appid) {
-            //     // get the app builder code
-            //     require(["application/builder/builder"], function (builderMode) {
-            //         // create configuration app builder
-            //         var builder = new builderMode(config, appResponse);
-            //         // start it
-            //         builder.startup().otherwise(function (error) {
-            //             // something went wrong. Let's report it.
-            //             myApp.reportError(error);
-            //         });
-            //     });
-            // } else {
-                //lets go!
-                myApp.startup(config, appResponse);
-            //}
-            $(document).ready(function () {
-               //document.removeEventListener("click", ,false)
-            });
 
 
-        });
     });
 </script>
 </body>

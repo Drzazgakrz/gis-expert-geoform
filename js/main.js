@@ -44,6 +44,8 @@ define([
     "/gis-expert-geoform/js/signIn.js",
     "/gis-expert-geoform/js/resetPassword.js",
     "/gis-expert-geoform/js/tokenUtil.js",
+    "config/templateConfig",
+    "application/template",
     "dojo/NodeList-traverse",
     "application/wrapper/main-jquery-deps",
     "dojo/domReady!"
@@ -91,7 +93,9 @@ define([
     registerController,
     signInController,
     resetPasswordController,
-    tokenUtil) {
+    tokenUtil,
+    templateOptions,
+    Template) {
 
     var NORTHING_OFFSET = 10000000.0; // (meters)
     var isS = false;
@@ -2301,19 +2305,23 @@ define([
             });
             featureData.geometry = {};
             featureData.geometry = new Point(Number(this.addressGeometry.x), Number(this.addressGeometry.y), this.map.spatialReference);
-            featureData.user = tokenUtil.getCookie("token");
-            $.ajax({
-               url: "localhost:8080/ankieta-web/rest/auth/submitSurvey",
-                data:featureData.toString(),
-                success:function () {
-                    alert("Przesłanie formularza powiodło się");
-                }
-            });
-
-            //code for apply-edits
-            /*console.log(featureData);
             this._formLayer.applyEdits([featureData], null, null, lang.hitch(this, function (addResults) {
-                // Add attachment on success
+                console.log(addResults[0]);
+                addResults[0].token = tokenUtil.getCookie("token");
+                $.ajax({
+                    url:"http://localhost:8080/ankieta-web/rest/auth/registerNotification",
+                    type:"POST",
+                    contentType: 'application/json',
+                    data:JSON.stringify(addResults[0]),
+                    success:function(status){
+                        console.log(status);
+                        console.log("success");
+                        tokenUtil.setCookie("token",status.token);
+                    },
+                    error:function(xhr, status){
+                        console.log(xhr,status);
+                    }
+                });
                 if (addResults[0].success && this.isHumanEntry) {
                     if (query(".fileToSubmit", userFormNode).length === 0) {
                         this._resetAndShare();
@@ -2351,7 +2359,7 @@ define([
                 this._openErrorModal(error);
                 // log for development
                 console.log(nls.user.addFeatureFailedMessage);
-            }));*/
+             }));
 
         },
         _resetAndShare: function () {
@@ -3014,10 +3022,11 @@ define([
                 domConstruct.destroy(node);
             }
         },
-        przyciski: function () {
+        przyciski: function (app) {
             if (tokenUtil.getCookie("token")) {
                 var token = tokenUtil.getCookie("token");
-                $.ajax({//zmiana na localhosta
+                console.log(token);
+               $.ajax({//zmiana na localhosta
                     url: "http://localhost:8080/ankieta-web/rest/auth/checkToken",
                     dataType: "json",
                     beforeSend: function (xhr) {
@@ -3034,9 +3043,6 @@ define([
 
                         $("#logOut").on("click", function () {
                             signInController.signOut();
-                        });
-                        $("#addNotification").on("click", function () {
-                            location.href = status.url;
                         });
                     },
                     error: function () {

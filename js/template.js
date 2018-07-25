@@ -258,7 +258,7 @@ define([
       // Define the proxy url for the app
       if (this.config.proxyurl) {
         esriConfig.defaults.io.proxyUrl = this.config.proxyurl;
-        esriConfig.defaults.io.alwaysUseProxy = false;
+        esriConfig.defaults.io.alwaysUseProxy = true;
       }
     },
     _checkSignIn: function () {

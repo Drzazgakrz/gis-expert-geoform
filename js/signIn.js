@@ -46,16 +46,6 @@ define(["/gis-expert-geoform/js/tokenUtil.js","application/main", "/gis-expert-g
                         console.log(signInController.isSignNow());
                         tokenUtil.setCookie("token", data.token, 4);
                         location.href="/gis-expert-geoform/";
-
-                       /* signInController.user = {
-                             name: data.firstname + " " + data.lastname,
-                             id: data.token,
-                             org: "gisExpert",
-                             canSubmit: true
-                         };
-
-                         tokenUtil.setCookie("token", data.token, 4);*/
-
                     }),
                     error: (function (data) {
                         //console.log(data);
