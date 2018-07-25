@@ -143,10 +143,13 @@
         myApp.przyciski();
         $(document).ready(function () {
             if ($("#addNotification")) {
+                console.log("w if");
                 $("#addNotification").on("click", function () {
+                    console.log("click");
                     var myTemplate = new Template(templateOptions);
                     myTemplate.startup().then(function (config) {
                         var appResponse = config.appResponse;
+                        console.log("o  var app");
                         myApp.startup(config, appResponse)
                     });
                 });

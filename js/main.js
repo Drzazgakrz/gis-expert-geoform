@@ -3025,7 +3025,11 @@ define([
         przyciski: function (app) {
             if (tokenUtil.getCookie("token")) {
                 var token = tokenUtil.getCookie("token");
+                var tokenUsername = tokenUtil.getCookie("username");
+                var tokenZglaszajacy = tokenUtil.getCookie("zglaszajacy");
                 console.log(token);
+                console.log(tokenUsername);
+                console.log(tokenZglaszajacy);
                $.ajax({//zmiana na localhosta
                     url: "http://localhost:8080/ankieta-web/rest/auth/checkToken",
                     dataType: "json",
@@ -3035,6 +3039,8 @@ define([
                     success: function (status) {
                         console.log(status);
                         tokenUtil.setCookie("token", status.token, status.expires);
+                        tokenUtil.setCookie("username",tokenUtil.getCookie("username"),status.expires);
+                        tokenUtil.setCookie("zglaszajacy",tokenUtil.getCookie("zglaszajacy"),status.expires);
                         $("<button id='addNotification' class='btn btn-primary indexButton'>" +
                             "<span class='glyphicon glyphicon-plus'></span>Dodaj zgłoszenie</button>").appendTo("#navbar");
                         $("<button id='logOut' class='btn btn-primary indexButton'>" +

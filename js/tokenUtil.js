@@ -21,7 +21,7 @@ define([],
             },
 
             eraseCookie :function(name){
-                this.setCookie(name,"",-1,false);
+                this.setCookie(name,"",-1);
 
         },
             getCookie : function(cname) {
@@ -99,9 +99,6 @@ define([],
                 return url;
             }
         },
-            eraseCookie :function(name){
-                this.setCookie(name,"",-1);
-            }
         };
         return tokenUtil;
 });

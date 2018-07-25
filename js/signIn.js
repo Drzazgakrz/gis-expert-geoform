@@ -45,6 +45,8 @@ define(["/gis-expert-geoform/js/tokenUtil.js","application/main", "/gis-expert-g
                         signInController.isSign=true;
                         console.log(signInController.isSignNow());
                         tokenUtil.setCookie("token", data.token, 4);
+                        tokenUtil.setCookie("username",data.username,4);
+                        tokenUtil.setCookie("zglaszajacy",data.firstname + " "+ data.lastname,4);
                         location.href="/gis-expert-geoform/";
                     }),
                     error: (function (data) {
@@ -75,6 +77,9 @@ define(["/gis-expert-geoform/js/tokenUtil.js","application/main", "/gis-expert-g
                 },
                 success: (function (data) {
                     tokenUtil.eraseCookie("token");
+                    tokenUtil.eraseCookie("username");
+                    tokenUtil.eraseCookie("zglaszajacy");
+
                     location.reload();
                 }),
                 error: (function (xhr, ajaxOptions, thrownError) {
@@ -82,6 +87,8 @@ define(["/gis-expert-geoform/js/tokenUtil.js","application/main", "/gis-expert-g
                 })
             });
             tokenUtil.eraseCookie("token");
+            tokenUtil.eraseCookie("username");
+            tokenUtil.eraseCookie("zglaszajacy");
             location.href="/gis-expert-geoform/";
         },
         getMap: function(){
