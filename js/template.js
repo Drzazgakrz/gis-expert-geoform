@@ -83,10 +83,8 @@ define([
       var promise = this._init();
       promise.then(lang.hitch(this, function (config) {
           console.log("truuue");
-        // optional ready event to listen to
         this.emit("ready", config);
       }), lang.hitch(this, function (error) {
-        // optional error event to listen to
           console.log("error");
         this.emit("error", error);
       }));
