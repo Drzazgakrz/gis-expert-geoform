@@ -82,10 +82,8 @@ define([
     startup: function () {
       var promise = this._init();
       promise.then(lang.hitch(this, function (config) {
-        // optional ready event to listen to
         this.emit("ready", config);
       }), lang.hitch(this, function (error) {
-        // optional error event to listen to
         this.emit("error", error);
       }));
       return promise;
@@ -258,7 +256,7 @@ define([
       // Define the proxy url for the app
       if (this.config.proxyurl) {
         esriConfig.defaults.io.proxyUrl = this.config.proxyurl;
-        esriConfig.defaults.io.alwaysUseProxy = true;
+        esriConfig.defaults.io.alwaysUseProxy = false;
       }
     },
     _checkSignIn: function () {

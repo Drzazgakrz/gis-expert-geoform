@@ -2303,6 +2303,20 @@ define([
                 value = query(".checkboxInput:checked", currentField).length;
                 featureData.attributes[key] = value;
             });
+            var login = tokenUtil.getCookie("username");
+            if(login!== null && login!==""){
+                featureData.attributes.login = login;
+            }
+            else{
+                return;
+            }
+            var zglaszajacy = tokenUtil.getCookie("zglaszajacy");
+            if(login!== null && login!==""){
+                featureData.attributes.Zglaszajacy = zglaszajacy;
+            }
+            else{
+                return;
+            }
             featureData.geometry = {};
             featureData.geometry = new Point(Number(this.addressGeometry.x), Number(this.addressGeometry.y), this.map.spatialReference);
             this._formLayer.applyEdits([featureData], null, null, lang.hitch(this, function (addResults) {
