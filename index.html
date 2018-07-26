@@ -135,7 +135,7 @@
 <script type="text/javascript" src="js/vendor/offline/offline.min.js"></script>
 <script type="text/javascript" src="js/vendor/IndexedDBShim.min.js"></script>
 <script type="text/javascript">
-    require(["config/templateConfig", "application/template", "application/main",], function (templateOptions, Template, Main) {
+    require(["config/templateConfig", "application/template", "application/main","/gis-expert-geoform/js/tokenUtil.js"], function (templateOptions, Template, Main, tokenUtil) {
         // start template
 
         // create my main application. Start placing your logic in the main.js file.
@@ -150,16 +150,17 @@
                     myTemplate.startup().then(function (config) {
                         var appResponse = config.appResponse;
                         console.log("o  var app");
-                        myApp.startup(config, appResponse)
-                    });
-                });
-            }
-        })
+                        myApp.startup(config, appResponse,function () {
 
-        // create my main application. Start placing your logic in the main.js file.
-
-
+                        })
+                })
+            });
+        }
     });
+    });
+
+
+        // create my main application. Start placing your logic in the main.js file
 </script>
 </body>
 

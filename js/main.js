@@ -118,7 +118,7 @@ define([
         currentLocation: null,
         dateFormat: "LLL",
 
-        startup: function (config, appResponse, isPreview, node) {
+        startup: function (config, appResponse) {
             document.documentElement.lang = kernel.locale;
 
             this._appResponse = appResponse;
@@ -144,11 +144,9 @@ define([
                 // place modal code
                 domConstruct.place(modalTemplateSub, document.body, 'last');
                 //supply either the webmap id or, if available, the item info
-                if (isPreview) {
-                    this._initPreview(node);
-                } else {
+
                     this._init();
-                }
+
             } else {
                 var error = new Error("Main:: Config is not defined");
                 this.reportError(error);
@@ -175,6 +173,7 @@ define([
             }
             userHTML = string.substitute(userTemplate, nls);
             dom.byId("parentContainter").innerHTML = userHTML;
+
             // get item info from template
             itemInfo = this.config.itemInfo || this.config.webmap;
             // create map
@@ -228,6 +227,26 @@ define([
                     domConstruct.place(cssStyle, h, "last");
                 }
             };
+            node.afterLoad(node.src,function () {
+                var login = tokenUtil.getCookie("username");
+                if(login!== null && login!==""){
+                    console.log(2);
+                    $("#login").value = login;
+                    $("#login").disabled = true;
+                }
+                else{
+                    return;
+                }
+                var zglaszajacy = tokenUtil.getCookie("zglaszajacy");
+                if(login!== null && login!==""){
+                    console.log(3);
+                    $("#Zglaszajacy").value = zglaszajacy;
+                    $("#Zglaszajacy").disabled = true;
+                }
+                else{
+                    return;
+                }
+            });
         },
         _submitForm: function () {
             var btn = $('#submitButton');
@@ -809,9 +828,9 @@ define([
             if (referenceNode) {
                 domConstruct.place(formContent, referenceNode, "after");
                 domClass.add(formContent, "fade");
-                setTimeout(function () {
+                //setTimeout(function () {
                     domClass.add(formContent, "in");
-                }, 100);
+                //}, 100);
             }
             if ((!currentField.nullable || currentField.typeField) && currentField.displayType !== "checkbox") {
                 domClass.add(formContent, "form-group geoFormQuestionare mandatory");
@@ -855,12 +874,15 @@ define([
                     }
                     //check for fieldType: if not present create dropdown
                     //If present check for fieldType value and accordingly populate the control
+
                     if (!radioInput) {
                         inputContent = domConstruct.create("select", {
                             className: "selectDomain",
                             disabled: !!currentField.locked,
                             "id": fieldname
+
                         }, formContent);
+
                         if (currentField.domain && !currentField.typeField) {
                             if (currentField.displayType == "Filter Select") {
                                 this._createFilterSelectInput(inputContent, fieldname);
@@ -869,13 +891,22 @@ define([
                                     innerHTML: nls.user.domainDefaultText,
                                     value: ""
                                 }, inputContent);
+
                                 domClass.add(inputContent, "form-control");
                             }
                             array.forEach(currentField.domain.codedValues, lang.hitch(this, function (currentOption) {
+                                var selected = false;
+                                if(currentOption.code === "new"){
+                                    console.log("nowe")
+                                    selected = true;
+                                }
                                 selectOptions = domConstruct.create("option", {
                                     innerHTML: currentOption.name,
-                                    value: currentOption.code
+                                    value: currentOption.code,
+                                    defaultSelected: selected,
+                                    selected: selected
                                 }, inputContent);
+
                                 //if field contain default value, make that option selected
                                 if (currentField.defaultValue === currentOption.code) {
                                     domAttr.set(selectOptions, "selected", true);
@@ -885,6 +916,10 @@ define([
                                     }
                                 }
                             }));
+                            if(fieldname==="Status"){
+                                inputContent.disabled = true;
+
+                            }
                         } else {
                             if (currentField.displayType == "Filter Select") {
                                 this._createFilterSelectInput(inputContent, fieldname);
@@ -1036,6 +1071,18 @@ define([
                 }
                 switch (currentField.type) {
                     case "esriFieldTypeString":
+                        var value = "";
+                        if(fieldname==="login")
+                        {
+                            var login = tokenUtil.getCookie("username");
+                            value = login;
+                            currentField.locked = true;
+                        }
+                        else if(fieldname === "Zglaszajacy"){
+                            var zglaszajacy = tokenUtil.getCookie("zglaszajacy");
+                            value = zglaszajacy;
+                            currentField.locked = true;
+                        }
                         if (currentField.displayType && currentField.displayType === "textarea") {
                             inputContent = domConstruct.create("textarea", {
                                 disabled: !!currentField.locked,
@@ -1057,7 +1104,8 @@ define([
                                 className: "form-control",
                                 "data-input-type": "String",
                                 "maxLength": currentField.length,
-                                "id": fieldname
+                                "id": fieldname,
+                                value :value
                             }, inputGroupContainer ? inputGroupContainer : formContent);
                         }
                         break;
@@ -2304,19 +2352,7 @@ define([
                 featureData.attributes[key] = value;
             });
             var login = tokenUtil.getCookie("username");
-            if(login!== null && login!==""){
-                featureData.attributes.login = login;
-            }
-            else{
-                return;
-            }
-            var zglaszajacy = tokenUtil.getCookie("zglaszajacy");
-            if(login!== null && login!==""){
-                featureData.attributes.Zglaszajacy = zglaszajacy;
-            }
-            else{
-                return;
-            }
+
             featureData.geometry = {};
             featureData.geometry = new Point(Number(this.addressGeometry.x), Number(this.addressGeometry.y), this.map.spatialReference);
             this._formLayer.applyEdits([featureData], null, null, lang.hitch(this, function (addResults) {
