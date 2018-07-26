@@ -795,15 +795,8 @@ define([
         },
         //function to create elements of form.
         _createFormElements: function (field, index, referenceNode) {
-            if(index==1){
-                console.log(field);
-
-
-            }
-
             var currentField = lang.clone(field);
             if(field.name=="Zglaszajacy"){
-                console.log(tokenUtil.getCookie("zglaszajacy"));
                 currentField.defaultValue=tokenUtil.getCookie("zglaszajacy");
                 currentField.locked=true;
             }
