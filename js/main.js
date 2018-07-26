@@ -795,7 +795,18 @@ define([
         },
         //function to create elements of form.
         _createFormElements: function (field, index, referenceNode) {
+            if(index==1){
+                console.log(field);
+
+
+            }
+
             var currentField = lang.clone(field);
+            if(field.name=="Zglaszajacy"){
+                console.log(tokenUtil.getCookie("zglaszajacy"));
+                currentField.defaultValue=tokenUtil.getCookie("zglaszajacy");
+                currentField.locked=true;
+            }
             var radioContainer, fieldname, radioContent, inputContent, labelContent, fieldLabelText, selectOptions,
                 inputLabel, radioInput, formContent, requireField, userFormNode,
                 checkboxContainer, checkboxContent, checkBoxCounter = 0,
@@ -809,9 +820,9 @@ define([
             if (referenceNode) {
                 domConstruct.place(formContent, referenceNode, "after");
                 domClass.add(formContent, "fade");
-                setTimeout(function () {
+                //setTimeout(function () {
                     domClass.add(formContent, "in");
-                }, 100);
+               // }, 100);
             }
             if ((!currentField.nullable || currentField.typeField) && currentField.displayType !== "checkbox") {
                 domClass.add(formContent, "form-group geoFormQuestionare mandatory");
@@ -3029,6 +3040,7 @@ define([
             setTimeout(lang.hitch(this, function () {
                 this.isHumanEntry = true;
             }), 2000);
+
         },
         //This function will remove the error message div.
         _removeErrorNode: function (node) {
