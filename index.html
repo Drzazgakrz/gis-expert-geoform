@@ -150,36 +150,18 @@
                     myTemplate.startup().then(function (config) {
                         var appResponse = config.appResponse;
                         console.log("o  var app");
-                        myApp.startup(config, appResponse);
-                       /* console.log(1);
-                        var login = tokenUtil.getCookie("username");
-                        if(login!== null && login!==""){
-                            console.log(2);
-                            $("#login").value = login;
-                            $("#login").disabled = true;
-                        }
-                        else{
-                            return;
-                        }
-                        var zglaszajacy = tokenUtil.getCookie("zglaszajacy");
-                        if(login!== null && login!==""){
-                            console.log(3);
-                            $("#Zglaszajacy").value = zglaszajacy;
-                            $("#Zglaszajacy").disabled = true;
-                        }
-                        else{
-                            return;
-                        }*/
-                    });
-                });
-            }
-        })
+                        myApp.startup(config, appResponse,function () {
 
-
-        // create my main application. Start placing your logic in the main.js file.
-
-
+                        })
+                })
+            });
+        }
     });
+    });
+
+
+
+        // create my main application. Start placing your logic in the main.js file
 </script>
 </body>
 
