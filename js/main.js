@@ -2363,7 +2363,6 @@ define([
             featureData.geometry = {};
             featureData.geometry = new Point(Number(this.addressGeometry.x), Number(this.addressGeometry.y), this.map.spatialReference);
             this._formLayer.applyEdits([featureData], null, null, lang.hitch(this, function (addResults) {
-                console.log(addResults[0]);
                 addResults[0].token = tokenUtil.getCookie("token");
                 $.ajax({
                     url:"http://localhost:8080/ankieta-web/rest/auth/registerNotification",
@@ -2371,12 +2370,9 @@ define([
                     contentType: 'application/json',
                     data:JSON.stringify(addResults[0]),
                     success:function(status){
-                        console.log(status);
-                        console.log("success");
                         tokenUtil.setCookie("token",status.token);
                     },
                     error:function(xhr, status){
-                        console.log(xhr,status);
                     }
                 });
                 if (addResults[0].success && this.isHumanEntry) {
@@ -3085,9 +3081,6 @@ define([
                 var token = tokenUtil.getCookie("token");
                 var tokenUsername = tokenUtil.getCookie("username");
                 var tokenZglaszajacy = tokenUtil.getCookie("zglaszajacy");
-                console.log(token);
-                console.log(tokenUsername);
-                console.log(tokenZglaszajacy);
                $.ajax({//zmiana na localhosta
                     url: "http://localhost:8080/ankieta-web/rest/auth/checkToken",
                     dataType: "json",
@@ -3095,7 +3088,6 @@ define([
                         xhr.setRequestHeader("token", token);
                     },
                     success: function (status) {
-                        console.log(status);
                         tokenUtil.setCookie("token", status.token, status.expires);
                         tokenUtil.setCookie("username",tokenUtil.getCookie("username"),status.expires);
                         tokenUtil.setCookie("zglaszajacy",tokenUtil.getCookie("zglaszajacy"),status.expires);

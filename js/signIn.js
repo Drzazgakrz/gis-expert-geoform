@@ -43,7 +43,6 @@ define(["/gis-expert-geoform/js/tokenUtil.js","application/main", "/gis-expert-g
                         $("#errorLoginIsWrong").attr("style", "display:none");
                         $("#errorPasswordIsWrong").attr("style", "display:none");
                         signInController.isSign=true;
-                        console.log(signInController.isSignNow());
                         tokenUtil.setCookie("token", data.token, 4);
                         tokenUtil.setCookie("username",login,4);
                         tokenUtil.setCookie("zglaszajacy",data.firstname + " "+ data.lastname,4);
