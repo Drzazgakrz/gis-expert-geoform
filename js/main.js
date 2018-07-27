@@ -710,7 +710,9 @@ define([
                 }, divRow);
             }
             this._verifyHumanEntry();
-            $("<button id='powrotZFormularza' class='btn btn-primary'> Powrót </button>" ).appendTo(".submit-area");
+            if($('#powrotZFormularza').length===0) {
+                $("<button id='powrotZFormularza' class='btn btn-primary'> Powrót </button>" ).appendTo(".submit-area");
+            }
             $("#powrotZFormularza").on("click", function () {
                 location.href="http://localhost/gis-expert-geoform/";
             });
