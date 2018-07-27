@@ -315,6 +315,7 @@ define([
                 var elementId;
                 if (!erroneousFields[0].children[0].id) {
                     elementId = erroneousFields[0].parentElement.children[0].id;
+                    console.log(elementId);
                     domClass.remove(elementId, "has-success");
                 } else {
                     elementId = erroneousFields[0].children[0].id;
@@ -622,6 +623,7 @@ define([
                 currentField.isTypeDependent = false;
                 array.forEach(this._formLayer.types, function (type) {
                     var currentType = lang.clone(type);
+                    console.log(type);
                     var hasDomainValue = null,
                         hasDefaultValue = null;
                     hasDomainValue = currentType.domains[currentField.name];
@@ -708,6 +710,10 @@ define([
                 }, divRow);
             }
             this._verifyHumanEntry();
+            $("<button id='powrotZFormularza' class='btn btn-primary'> Powrót </button>" ).appendTo(".submit-area");
+            $("#powrotZFormularza").on("click", function () {
+                location.href="http://localhost/gis-expert-geoform/";
+            });
         },
         _addToFileList: function (fileInput, fileBtnSpan, formContent, fileDetails) {
             var unit, fileSize = "",
@@ -920,7 +926,6 @@ define([
                             }));
                             if(fieldname==="Status"){
                                 inputContent.disabled = true;
-
                             }
                         } else {
                             if (currentField.displayType == "Filter Select") {
