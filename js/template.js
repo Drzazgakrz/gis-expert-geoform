@@ -82,10 +82,8 @@ define([
     startup: function () {
       var promise = this._init();
       promise.then(lang.hitch(this, function (config) {
-          console.log("truuue");
         this.emit("ready", config);
       }), lang.hitch(this, function (error) {
-          console.log("error");
         this.emit("error", error);
       }));
       return promise;
